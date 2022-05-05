@@ -40,6 +40,9 @@ class Mouvement:
         self.turn90("right", 0.5)
         self.turn90("left", 0.5)
         self.turn90("right", 1)
+        self.turn90("right", 1)
+        self.turn90("left", 0.5)
+        self.turn90("left", 0.5)
 
     def initialise(self):
         self.ENA.off()
