@@ -13,8 +13,8 @@ class Mouvement:
         self.initialise()
 
     def forward(self, speed=25, wait=2):
-        fade_in = speed / 100
-        fade_out = (100 - speed) / 100
+        fade_in = speed / 1000
+        fade_out = (100 - speed) / 1000
         print(fade_out)
         self.ENA.frequency = speed
         self.ENB.frequency = speed
