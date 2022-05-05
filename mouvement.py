@@ -29,13 +29,13 @@ class Mouvement:
         #while not condition:
             if (dir == "left"):
                 self.IN2.on()
-                self.IN3.on()
-                #self.ENA.on()
+                #self.IN3.on()
+                self.ENA.on()
                 self.ENB.on()
             elif (dir == "right"):
                 self.IN1.on()
-                self.IN4.on()
-                #self.ENA.on()
+                #self.IN4.on()
+                self.ENA.on()
                 self.ENB.on()
             time.sleep(wait)
             condition = True
