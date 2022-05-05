@@ -14,11 +14,13 @@ class InfraRouge():
         self.SDE.when_deactivated = self.actif_droite
         self.SGE.when_activated = self.inactif_gauche
         self.SDE.when_activated = self.inactif_droite
-
+    
 
     def actif_gauche(self):
+        print("Capteur gauche actif")
         self.gauche_actif = True
     def actif_droite(self):
+        print("Capteur droit actif")
         self.droite_actif = True
 
     def inactif_gauche(self):
