@@ -13,16 +13,16 @@ class Mouvement:
         self.initialise()
 
     def forward(self, speed=90, wait=2):
-        fade_in = speed / 100000
-        fade_out = (100 - speed) / 100000
+        fade_in = speed / 1000
+        fade_out = (100 - speed) / 1000
         print(fade_in)
         print(fade_out)
         self.IN1.on()
         self.IN3.on()
         #self.ENA.on()
         #self.ENB.on()
-        self.ENA.blink( off_time=fade_out)
-        self.ENB.blink( off_time=fade_out)
+        self.ENA.blink(on_time=fade_in, off_time=fade_out, fade_in_time=1)
+        self.ENB.blink(on_time=fade_in, off_time=fade_out, fade_in_time=1)
         time.sleep(wait)
         self.initialise()   
 
