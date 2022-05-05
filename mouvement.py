@@ -28,8 +28,8 @@ class Mouvement:
     def turn90(self, dir, wait=1, condition=False):
         #while not condition:
             if (dir == "left"):
-                self.IN2.off()
-                self.IN3.on()
+                self.IN3.blink(on_time=0.90, off_time=0.2)
+                self.IN2.blink(on_time=0.20, off_time=0.2)
                 self.ENA.on()
                 self.ENB.on()
             elif (dir == "right"):
