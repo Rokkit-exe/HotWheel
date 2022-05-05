@@ -30,7 +30,7 @@ class Mouvement:
             if (dir == "left"):
                 self.IN2.on()
                 self.IN3.on()
-                time.sleep(0.1)
+                
                 self.ENA.on()
                 self.ENB.on()
             elif (dir == "right"):
