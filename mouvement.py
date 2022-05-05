@@ -17,8 +17,15 @@ class Mouvement:
         self.ENA.on()
         self.ENB.on()
         time.sleep(wait)
-        self.IN1.off()
-        self.ENA.off()     
+        self.initialise()   
 
     def turn90(self, dir):
         pass
+
+    def initialise(self):
+        self.ENA.off()
+        self.ENB.off()
+        self.IN1.off()
+        self.IN2.off()
+        self.IN3.off()
+        self.IN4.off()
