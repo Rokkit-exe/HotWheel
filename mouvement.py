@@ -29,6 +29,7 @@ class Mouvement:
         #while not condition:
             if (dir == "left"):
                 self.IN1.on()
+                self.IN4.on()
                 self.ENA.on()
                 self.ENB.on()
             elif (dir == "right"):
