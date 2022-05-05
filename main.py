@@ -15,7 +15,7 @@ graphe = Graphe(matrice_distances)
 
 M = Mouvement()
 Infra = InfraRouge()
-M.turn90("left", 0.5)
+M.turn90("left", 0.4)
 
 
 #print(graphe.plus_court_chemin(0, 5)) # [0, 2, 3, 4, 5]
