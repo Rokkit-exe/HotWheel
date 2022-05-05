@@ -30,7 +30,8 @@ class Mouvement:
         while(not est_detecter):
             if(not capteur_infrarouge.gauche_actif and not capteur_infrarouge.droite_actif):
                 print("allo")
-                est_detecter = True
+                #est_detecter = True
+                break
             if (dir == "left"):
                 self.IN2.on()
                 self.IN3.on()
