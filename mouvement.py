@@ -13,7 +13,9 @@ class Mouvement:
 
     def forward(self, wait=0):
         self.IN1.on()
+        self.IN3.on()
         self.ENA.on()
+        self.ENB.on()
         time.sleep(wait)
         self.IN1.off()
         self.ENA.off()     
