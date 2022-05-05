@@ -25,23 +25,22 @@ class Mouvement:
         self.initialise()
 
 
-    def turn90(self, dir, capteur_infrarouge, wait=1, est_detecter=False):
-        #while not condition:
+    def turn(self, dir, capteur_infrarouge, wait=1, est_detecter=False):
         while(not est_detecter):
             if(not capteur_infrarouge.gauche_actif and  not capteur_infrarouge.droite_actif):
-                print("allo")
                 est_detecter = True
-            if (dir == "left"):
-                self.IN2.on()
-                self.IN3.on()
-                self.ENA.on()
-                self.ENB.on()
-            elif (dir == "right"):
-                self.IN1.on()
-                self.IN4.on()
-                self.ENA.on()
-                self.ENB.on()
-            time.sleep(wait)
+            else:
+                if (dir == "left"):
+                    self.IN2.on()
+                    self.IN3.on()
+                    self.ENA.on()
+                    self.ENB.on()
+                elif (dir == "right"):
+                    self.IN1.on()
+                    self.IN4.on()
+                    self.ENA.on()
+                    self.ENB.on()
+                time.sleep(wait)
         self.initialise()
 
     def wiggle(self):
