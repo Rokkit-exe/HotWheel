@@ -16,8 +16,8 @@ class Mouvement:
         fade_in = speed / 1000
         fade_out = (100 - speed) / 1000
         print(fade_out)
-        self.ENA.frequency = speed
-        self.ENB.frequency = speed
+        #self.ENA.frequency = speed
+        #self.ENB.frequency = speed
         self.IN1.on()
         self.IN3.on()
         #self.ENA.on()
