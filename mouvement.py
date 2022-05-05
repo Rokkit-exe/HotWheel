@@ -40,6 +40,7 @@ class Mouvement:
                 self.ENB.on()
             time.sleep(wait)
             if(not capteur_infrarouge.gauche_actif and not capteur_infrarouge.droite_actif):
+                print("allo")
                 est_detecter = True
         self.initialise()
 
