@@ -20,8 +20,8 @@ class Mouvement:
         time.sleep(wait)
         self.initialise()   
 
-    def turn90(self, dir, condition=False):
-        while not condition:
+    def turn90(self, dir, wait=1, condition=False):
+        #while not condition:
             if (dir == "left"):
                 self.IN2.on()
                 self.IN3.on()
@@ -32,9 +32,16 @@ class Mouvement:
                 self.IN4.on()
                 self.ENA.on()
                 self.ENB.on()
-            time.sleep(5)
+            #time.sleep(wait)
             condition = True
-        self.initialise()
+            self.initialise()
+
+    def wiggle(self):
+        self.turn90("right")
+        time.sleep(1)
+        self.turn90("left")
+        time.sleep(1.5)
+        self.turn90("right")
 
     def initialise(self):
         self.ENA.off()
