@@ -7,8 +7,8 @@ class InfraRouge():
         self.SDT = gpiozero.DigitalInputDevice(21)
         self.SDE = gpiozero.DigitalInputDevice(20)
 
-        self.SGE.when_deacttivated = self.inactif_gauche()
-        self.SDE.when_deacttivated = self.inactif_droit()
+        self.SGE.when_deactivated = self.inactif_gauche()
+        self.SDE.when_deactivated = self.inactif_droit()
 
 
     def inactif_gauche():
