@@ -1,16 +1,15 @@
-from gpiozero import DigitalOutputDevice
-from gpiozero import PWDOutputDevice
+from gpiozero import OutputDevice
 import time
 
 class Mouvement:
     def __init__(self):
-        self.IN1 = DigitalOutputDevice(6)
-        self.IN2 = DigitalOutputDevice(5)  # moteur G
-        self.ENA = PWDOutputDevice(13)
+        self.IN1 = OutputDevice.DigitalOutputDevice(6)
+        self.IN2 = OutputDevice.DigitalOutputDevice(5)  # moteur G
+        self.ENA = OutputDevice.PWDOutputDevice(13)
 
-        self.IN3 = DigitalOutputDevice(15)
-        self.IN4 = DigitalOutputDevice(14) # mouteur
-        self.ENB = PWDOutputDevice(18)
+        self.IN3 = OutputDevice.DigitalOutputDevice(15)
+        self.IN4 = OutputDevice.DigitalOutputDevice(14) # mouteur
+        self.ENB = OutputDevice.PWDOutputDevice(18)
 
     def forward(self, time=0):
         self.IN1.on()
