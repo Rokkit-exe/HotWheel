@@ -2,6 +2,8 @@ import gpiozero
 
 class InfraRouge():
     def __init__(self):
+        
+        # -------------  Sonars  --------------
         #self.SGT = gpiozero.DigitalInputDevice(8, bounce_time=0.1)
         #self.SGE = gpiozero.DigitalInputDevice(25, bounce_time=0.1)
         #self.SDT = gpiozero.DigitalInputDevice(21, bounce_time=0.1)
@@ -20,10 +22,10 @@ class InfraRouge():
     
 
     def actif_gauche(self):
-        print("Capteur gauche actif")
+        print("IRG actif")
         self.gauche_actif = True
     def actif_droite(self):
-        print("Capteur droit actif")
+        print("IRD actif")
         self.droite_actif = True
 
     def inactif_gauche(self):
