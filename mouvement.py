@@ -13,8 +13,9 @@ class Mouvement:
         self.initialise()
 
     def forward(self, speed=75, wait=2):
-        fade_in = speed / 1000
-        fade_out = (100 - speed) / 1000
+        fade_in = speed / 10
+        fade_out = (100 - speed) / 10
+        print(fade_in)
         print(fade_out)
         self.IN1.on()
         self.IN3.on()
