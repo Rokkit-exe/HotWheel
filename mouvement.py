@@ -11,10 +11,10 @@ class Mouvement:
         self.IN4 = gpiozero.DigitalOutputDevice(14) # mouteur
         self.ENB = gpiozero.PWMOutputDevice(18)
 
-    def forward(self, time=0):
+    def forward(self, wait=0):
         self.IN1.on()
         self.ENA.on()
-        time.sleep(5)
+        time.sleep(wait)
         self.IN1.off()
         self.ENA.off()     
 
