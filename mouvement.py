@@ -12,7 +12,7 @@ class Mouvement:
         self.ENB = gpiozero.PWMOutputDevice(18)
         self.initialise()
 
-    def forward(self, speed=10, wait=2):
+    def forward(self, speed=99, wait=2):
         fade_in = speed / 1000
         fade_out = (100 - speed) / 1000
         print(fade_out)
