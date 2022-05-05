@@ -13,6 +13,6 @@ matrice_distances =  [ [  0,   3,   1,   Inf, Inf, Inf ],
 graphe = Graphe(matrice_distances)
 
 M = Mouvement()
-M.wiggle()
+M.forward()
 #print(graphe.plus_court_chemin(0, 5)) # [0, 2, 3, 4, 5]
 #print(graphe.plus_court_chemin(5, 0)) # [5, 4, 3, 2, 0]
