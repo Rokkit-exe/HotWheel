@@ -5,11 +5,11 @@ class Mouvement:
     def __init__(self):
         self.IN1 = gpiozero.DigitalOutputDevice(6)
         self.IN2 = gpiozero.DigitalOutputDevice(5)  # moteur G
-        self.ENA = gpiozero.PWDOutputDevice(13)
+        self.ENA = gpiozero.PWMOutputDevice(13)
 
         self.IN3 = gpiozero.DigitalOutputDevice(15)
         self.IN4 = gpiozero.DigitalOutputDevice(14) # mouteur
-        self.ENB = gpiozero.PWDOutputDevice(18)
+        self.ENB = gpiozero.PWMOutputDevice(18)
 
     def forward(self, time=0):
         self.IN1.on()
