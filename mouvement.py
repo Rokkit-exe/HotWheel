@@ -28,6 +28,9 @@ class Mouvement:
     def turn90(self, dir, capteur_infrarouge, wait=1, est_detecter=False):
         #while not condition:
         while(not est_detecter):
+            if(not capteur_infrarouge.gauche_actif and not capteur_infrarouge.droite_actif):
+                print("allo")
+                est_detecter = True
             if (dir == "left"):
                 self.IN2.on()
                 self.IN3.on()
@@ -39,9 +42,6 @@ class Mouvement:
                 self.ENA.on()
                 self.ENB.on()
             time.sleep(wait)
-            if(not capteur_infrarouge.gauche_actif and not capteur_infrarouge.droite_actif):
-                print("allo")
-                est_detecter = True
         self.initialise()
 
     def wiggle(self):
