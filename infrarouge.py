@@ -12,6 +12,6 @@ class InfraRouge():
 
 
     def inactif_gauche():
-        return True
+        print("gauche")
     def inactif_droit():
-        return True
+        print("droite")

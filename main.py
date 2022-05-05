@@ -1,6 +1,7 @@
 import sys
 from graphe import Graphe
 from mouvement import Mouvement
+from infrarouge import InfraRouge
 Inf = sys.maxsize
 
 matrice_distances =  [ [  0,   3,   1,   Inf, Inf, Inf ],  
@@ -13,6 +14,8 @@ matrice_distances =  [ [  0,   3,   1,   Inf, Inf, Inf ],
 graphe = Graphe(matrice_distances)
 
 M = Mouvement()
-M.forward()
+Infra = InfraRouge()
+
+
 #print(graphe.plus_court_chemin(0, 5)) # [0, 2, 3, 4, 5]
 #print(graphe.plus_court_chemin(5, 0)) # [5, 4, 3, 2, 0]
