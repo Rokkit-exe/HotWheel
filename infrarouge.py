@@ -2,10 +2,10 @@ import gpiozero
 
 class InfraRouge():
     def __init__(self):
-        self.SGT = gpiozero.DigitalInputDevice(8)
-        self.SGE = gpiozero.DigitalInputDevice(25)
-        self.SDT = gpiozero.DigitalInputDevice(21)
-        self.SDE = gpiozero.DigitalInputDevice(20)
+        self.SGT = gpiozero.DigitalInputDevice(8, bounce_time=0.1)
+        self.SGE = gpiozero.DigitalInputDevice(25, bounce_time=0.1)
+        self.SDT = gpiozero.DigitalInputDevice(21, bounce_time=0.1)
+        self.SDE = gpiozero.DigitalInputDevice(20, bounce_time=0.1)
 
         self.gauche_actif = None
         self.droite_actif = None
