@@ -18,7 +18,7 @@ class Mouvement:
         print(fade_in)
         print(fade_out)
         self.IN1.on()
-        """self.IN3.on()"""
+        self.IN3.on()
         self.ENA.blink(on_time=fade_in, off_time=fade_out, fade_in_time=1)
         self.ENB.blink(on_time=fade_in, off_time=fade_out, fade_in_time=1)
         time.sleep(wait)
@@ -29,12 +29,12 @@ class Mouvement:
         #while not condition:
             if (dir == "left"):
                 self.IN2.on()
-                self.IN3.on()
+                #self.IN3.on()
                 self.ENA.on()
                 self.ENB.on()
             elif (dir == "right"):
                 self.IN1.on()
-                self.IN4.on()
+                #self.IN4.on()
                 self.ENA.on()
                 self.ENB.on()
             time.sleep(wait)
