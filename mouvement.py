@@ -21,8 +21,8 @@ class Mouvement:
         self.IN3.on()
         #self.ENA.on()
         #self.ENB.on()
-        self.ENA.blink(on_time=fade_in, off_time=fade_out)
-        self.ENB.blink(on_time=fade_in, off_time=fade_out)
+        self.ENA.blink( off_time=fade_out)
+        self.ENB.blink( off_time=fade_out)
         time.sleep(wait)
         self.initialise()   
 
