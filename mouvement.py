@@ -32,16 +32,14 @@ class Mouvement:
                 self.IN4.on()
                 self.ENA.on()
                 self.ENB.on()
-            #time.sleep(wait)
+            time.sleep(wait)
             condition = True
             self.initialise()
 
     def wiggle(self):
-        self.turn90("right")
-        time.sleep(1)
-        self.turn90("left")
-        time.sleep(1.5)
-        self.turn90("right")
+        self.turn90("right", 1)
+        self.turn90("left", 1)
+        self.turn90("right", 1.5)
 
     def initialise(self):
         self.ENA.off()
