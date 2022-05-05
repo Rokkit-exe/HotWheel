@@ -28,7 +28,7 @@ class Mouvement:
     def turn90(self, dir, capteur_infrarouge, wait=1, est_detecter=False):
         #while not condition:
         while(not est_detecter):
-            if(capteur_infrarouge.gauche_actif and capteur_infrarouge.droite_actif):
+            if(not capteur_infrarouge.gauche_actif and  not capteur_infrarouge.droite_actif):
                 print("allo")
                 #est_detecter = True
                 break
