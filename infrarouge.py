@@ -7,11 +7,21 @@ class InfraRouge():
         self.SDT = gpiozero.DigitalInputDevice(21)
         self.SDE = gpiozero.DigitalInputDevice(20)
 
-        self.SGE.when_deactivated = self.inactif_gauche()
-        self.SDE.when_deactivated = self.inactif_droit()
+        self.gauche_actif = None
+        self.droite_actif = None
+
+        self.SGE.when_deactivated = self.actif_gauche()
+        self.SDE.when_deactivated = self.actif_droite()
+        self.SGE.when_activated = self.inactif_gauche()
+        self.SDE.when_activated = self.inactif_droite()
 
 
-    def inactif_gauche():
-        print("gauche")
-    def inactif_droit():
-        print("droite")
+    def actif_gauche(self):
+        self.gauche_actif = True
+    def actif_droite(self):
+        self.droite_actif = True
+
+    def inactif_gauche(self):
+        self.gauche_actif = False
+    def inactif_droite(self):
+        self.droite_actif = False
