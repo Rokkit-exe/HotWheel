@@ -10,10 +10,10 @@ class InfraRouge():
         self.gauche_actif = None
         self.droite_actif = None
 
-        self.SGE.when_deactivated = self.actif_gauche()
-        self.SDE.when_deactivated = self.actif_droite()
-        self.SGE.when_activated = self.inactif_gauche()
-        self.SDE.when_activated = self.inactif_droite()
+        self.SGE.when_deactivated = self.actif_gauche
+        self.SDE.when_deactivated = self.actif_droite
+        self.SGE.when_activated = self.inactif_gauche
+        self.SDE.when_activated = self.inactif_droite
 
 
     def actif_gauche(self):
