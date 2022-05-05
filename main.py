@@ -16,6 +16,8 @@ graphe = Graphe(matrice_distances)
 M = Mouvement()
 Infra = InfraRouge()
 
+while(True):
+    pass
 
 
 #print(graphe.plus_court_chemin(0, 5)) # [0, 2, 3, 4, 5]
