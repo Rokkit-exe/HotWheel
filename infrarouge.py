@@ -22,8 +22,10 @@ class InfraRouge():
     
 
     def actif_gauche(self):
+        print("Actif gauche")
         self.gauche_actif = True
     def actif_droite(self):
+        print("Actif droite")
         self.droite_actif = True
 
     def inactif_gauche(self):

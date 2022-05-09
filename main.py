@@ -34,6 +34,13 @@ matrice_distances = [ #1   2    3     4     5     6     7     8     9    10    1
 
 tab_direction = [(1,2), (1,3), (1,5), (4,3), (5,3), (4,6), (2,6), (5,6), (5,9), (5,10), (5,1), (7,1), (7,2), (7,5), (7,9), (11,2), (9,5), (11,5), (9,9)]
 
+matrice_distances =  [ [  0,   3,   1,   Inf, Inf, Inf ],  
+                       [  3,   0,   1,   3,   Inf, Inf ],
+                       [  1,   1,   0,   3,   5,   Inf ],
+                       [  Inf, 3,   3,   0,   1,   3   ],
+                       [  Inf, Inf, 5,   1,   0,   1   ],
+                       [  Inf, Inf, Inf, 3,   1,   0   ] ]
+
 graphe = Graphe(matrice_distances)
 
 #M = Mouvement()
@@ -44,3 +51,5 @@ graphe = Graphe(matrice_distances)
 
 print(graphe.plus_court_chemin(18, 1)) # [0, 2, 3, 4, 5]
 # print(graphe.plus_court_chemin(5, 0)) # [5, 4, 3, 2, 0]
+#print(graphe.plus_court_chemin(0, 5)) # [0, 2, 3, 4, 5]
+#print(graphe.plus_court_chemin(5, 0)) # [5, 4, 3, 2, 0]

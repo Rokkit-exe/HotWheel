@@ -10,42 +10,50 @@ class Mouvement:
         self.IN3 = gpiozero.DigitalOutputDevice(15)
         self.IN4 = gpiozero.DigitalOutputDevice(14) # moteur D
         self.ENB = gpiozero.PWMOutputDevice(18)
-        self.initialise()
+        self.Initialise()
 
 
     # FDF je n'ai pas réussi a réguler la vitesse avec la fonction blink ou pulse
-    def forward(self, speed=90, wait=2):
-        fade_in = speed / 10000
-        fade_out = (100 - speed) / 10000
-        print(fade_in)
-        print(fade_out)
-        self.IN1.on()
-        self.IN3.on()
-        self.ENA.blink(on_time=fade_in, off_time=fade_out, fade_in_time=1)
-        self.ENB.blink(on_time=fade_in, off_time=fade_out, fade_in_time=1)
-        time.sleep(wait)
-        self.initialise()
-
-
-    def turn(self, dir, capteur_infrarouge, wait=1, est_detecter=False):
+    def Avancer(self, capteur_infrarouge, speed=40, wait=2, est_detecter=False):
         while(not est_detecter):
-            if(not capteur_infrarouge.gauche_actif and  not capteur_infrarouge.droite_actif):
+            fade_in = speed / 10000
+            fade_out = (100 - speed) / 10000
+            print(fade_in)
+            print(fade_out)
+            self.IN1.on()
+            self.IN3.on()
+            self.ENA.pulse(fade_in_time=fade_in, fade_out_time=fade_out)
+            self.ENB.pulse(fade_in_time=fade_in, fade_out_time=fade_out)
+            time.sleep(wait)
+            if(capteur_infrarouge.gauche_actif and capteur_infrarouge.droite_actif):
+                print("J'arrête")
                 est_detecter = True
-            else:
-                if (dir == "left"):
-                    self.IN2.on()
-                    self.IN3.on()
-                    self.ENA.on()
-                    self.ENB.on()
-                elif (dir == "right"):
-                    self.IN1.on()
-                    self.IN4.on()
-                    self.ENA.on()
-                    self.ENB.on()
-                time.sleep(wait)
-        self.initialise()
+            #self.Initialise()
+            
+    def Est_Sur_Ligne(self, capteur_infrarouge):
+        if(not capteur_infrarouge.gauche_actif):
+            self.IN1.pulse(fade_in_time=0.2, fade_out_time=0.02)
+            return True
+        elif(not capteur_infrarouge.droite_actif):
+            self.IN3.pulse(fade_in_time=0.2, fade_out_time=0.02)
+            return True
+        return False
+        
+    
+    def Tourner_90(self, dir, wait=0.39):
+        if (dir == "left"):
+            self.IN2.on()
+            self.IN3.on()
+            self.ENA.on()
+            self.ENB.on()
+        elif (dir == "right"):
+            self.IN1.on()
+            self.IN4.on()
+            self.ENA.on()
+            self.ENB.on()
+        time.sleep(wait)
 
-    def wiggle(self):
+    def Wiggle(self):
         self.turn90("right", 0.5)
         self.turn90("left", 0.5)
         self.turn90("right", 1)
@@ -53,7 +61,7 @@ class Mouvement:
         self.turn90("left", 0.5)
         self.turn90("left", 0.5)
 
-    def initialise(self):
+    def Initialise(self):
         self.ENA.off()
         self.ENB.off()
         self.IN1.off()
