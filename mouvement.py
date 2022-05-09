@@ -49,7 +49,7 @@ class Mouvement:
             self.IN4.on()
             self.ENA.on()
             self.ENB.on()
-        time.sleep(wait)
+        #time.sleep(wait)
 
     def Wiggle(self):
         self.turn90("right", 0.5)
