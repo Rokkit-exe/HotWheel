@@ -39,6 +39,7 @@ class Mouvement:
                 self.ENB.on()
             time.sleep(wait)
             if(capteur_infrarouge.gauche_actif and capteur_infrarouge.droite_actif):
+                print("J'arrête")
                 est_detecter = True
         self.initialise()
 
