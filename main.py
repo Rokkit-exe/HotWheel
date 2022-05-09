@@ -1,15 +1,10 @@
 import sys
 from graphe import Graphe
-#from mouvement import Mouvement
-#from infrarouge import InfraRouge
+from mouvement import Mouvement
+from infrarouge import InfraRouge
 Inf = sys.maxsize
 
-#matrice_distances = [[0,   3,   1,   Inf, Inf, Inf],
-#                     [3,   0,   1,   3,   Inf, Inf],
-#                     [1,   1,   0,   3,   5,   Inf],
-#                     [Inf, 3,   3,   0,   1,   3],
-#                     [Inf, Inf, 5,   1,   0,   1],
-#                     [Inf, Inf, Inf, 3,   1,   0]]
+
                       #0   1    2     3     4     5     6     7     8    9     10    11    12    13    14    15    16    17    18
 matrice_distances = [ #1   2    3     4     5     6     7     8     9    10    11    12    13    14    15    16    17    18    19
                      [ 0,  1,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf], # 0
@@ -34,19 +29,13 @@ matrice_distances = [ #1   2    3     4     5     6     7     8     9    10    1
 
 tab_direction = [(1,2), (1,3), (1,5), (4,3), (5,3), (4,6), (2,6), (5,6), (5,9), (5,10), (5,1), (7,1), (7,2), (7,5), (7,9), (11,2), (9,5), (11,5), (9,9)]
 
-matrice_distances =  [ [  0,   3,   1,   Inf, Inf, Inf ],  
-                       [  3,   0,   1,   3,   Inf, Inf ],
-                       [  1,   1,   0,   3,   5,   Inf ],
-                       [  Inf, 3,   3,   0,   1,   3   ],
-                       [  Inf, Inf, 5,   1,   0,   1   ],
-                       [  Inf, Inf, Inf, 3,   1,   0   ] ]
 
 graphe = Graphe(matrice_distances)
 
-#M = Mouvement()
-#Infra = InfraRouge()
+M = Mouvement()
+Infra = InfraRouge()
 
-#M.turn("left", Infra, 1)
+M.Avancer(Infra)
 
 
 print(graphe.plus_court_chemin(18, 1)) # [0, 2, 3, 4, 5]
