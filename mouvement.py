@@ -22,8 +22,8 @@ class Mouvement:
             print(fade_out)
             self.IN1.on()
             self.IN3.on()
-            self.ENA.pulse(fade_in_time=fade_in, fade_out_time=fade_out)
-            self.ENB.pulse(fade_in_time=fade_in, fade_out_time=fade_out)
+            self.ENA.value = 0.5
+            self.ENB.value = 0.5
             time.sleep(wait)
             if(capteur_infrarouge.gauche_actif and capteur_infrarouge.droite_actif):
                 print("J'arrête")
