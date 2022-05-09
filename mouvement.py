@@ -43,21 +43,21 @@ class Mouvement:
             if (dir == "left"):
                 self.IN2.on()
                 self.IN3.on()
-                self.ENA.value = 0.3
+                self.ENA.value = 0.5
                 self.ENB.value = 0.3
             elif (dir == "right"):
                 self.IN1.on()
                 self.IN4.on()
                 self.ENA.value = 0.3
-                self.ENB.value = 0.3
+                self.ENB.value = 0.5
             time.sleep(wait)
             if(dir == "left"):
                 if(capteur_infrarouge.gauche_actif):
-                    print("IR droite activé")
+                    print("IR gauche activé")
                     est_detecter=True
             elif(dir == "right"):
                 if(capteur_infrarouge.droite_actif):
-                    print("IR gauche activé")
+                    print("IR droite activé")
                     est_detecter = True
 
     def Wiggle(self):
