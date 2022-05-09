@@ -18,8 +18,8 @@ class Mouvement:
         while(not est_detecter):
             self.IN1.on()
             self.IN3.on()
-            self.ENA.value = 0.5
-            self.ENB.value = 0.5
+            self.ENA.value = 0.3
+            self.ENB.value = 0.3
             time.sleep(wait)
             if(capteur_infrarouge.gauche_actif and capteur_infrarouge.droite_actif):
                 print("J'arrête")
