@@ -48,7 +48,7 @@ class Mouvement:
             elif (dir == "right"):
                 self.IN1.on()
                 self.IN4.on()
-                self.ENA.value = 0.3
+                self.ENA.on()
                 self.ENB.value = 0.4
             time.sleep(wait)
             if(dir == "left"):
