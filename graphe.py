@@ -38,15 +38,16 @@ class Graphe:
                             
                 self.courant = noeuds[self.index_courant]
                 self.courant.vu = True
-                print(self.index_courant)
+                print(f"noeud courant => {self.index_courant}")
 
                 for i in range(len(self.matrice[self.index_courant])):
-                    distance_voisin = self.matrice[self.index_courant][i] + self.courant.distance
+                    if not noeuds[i].vu:                    
+                        distance_voisin = self.matrice[self.index_courant][i] + self.courant.distance
                     
-                    if(distance_voisin < noeuds[i].distance):
-                        noeuds[i].distance = distance_voisin
-                        noeuds[i].prec = self.index_courant
-                        print(f"nouvelle distance du noeuds : {distance_voisin}")
+                        if(distance_voisin < noeuds[i].distance):
+                            noeuds[i].distance = distance_voisin
+                            noeuds[i].prec = self.index_courant
+                            print(f"nouvelle distance du noeuds {i} => {distance_voisin}")
                     
         self.index_courant = fin
         bool = True
