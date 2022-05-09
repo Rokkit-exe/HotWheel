@@ -9,7 +9,8 @@ class Graphe:
         self.index_prochain = None
         self.index_prec = None
         self.min_distance = Noeud.Inf
-        
+        self.path_trouver = None
+        self.toute_vue = None
         self.chemin = []
 
     def plus_court_chemin(self, depart, fin):
@@ -18,45 +19,43 @@ class Graphe:
         for i in range(len(self.matrice)):
             noeuds.append(Noeud())
         noeuds[depart].distance = 0
-        noeuds[depart].vu = True
-        noeuds[depart].prec = noeuds[depart]
-        self.courant = noeuds[depart]
-        self.index_courant = depart
-        self.chemin.append(self.index_courant)
+        noeuds[depart].prec = 0
+
+        
 
 #self.index_courant,
-        for i in range(5): # tent que la fin n'est pas explorer
-            for i in range(len(self.matrice[self.index_courant])):
-                distance_voisin = self.matrice[self.index_courant][i]
-                print(f"distance voisin: {distance_voisin}")
-                if (not noeuds[i].vu and distance_voisin != Noeud.Inf):
-                    noeuds[i].distance = distance_voisin + self.courant.distance
-                    print(f"noeud[{i}]: {noeuds[i].distance}")
-                    if (distance_voisin < self.min_distance):
-                        self.index_prochain = i
-                        self.min_distance = distance_voisin + self.courant.distance
-                        print(f"min_distance: {self.min_distance}" )
-            
-            if (noeuds[fin] == self.courant):
-                self.fin_explorer = True
+        while(not self.fin_explorer):
+            if(noeuds[fin] == self.courant):
+                        self.fin_explorer = True
             else:
-                print(f"INDEX PROCHAIN: {self.index_prochain}")
-                if (self.min_distance <= noeuds[self.index_prochain].distance):
-                    noeuds[self.index_prochain].prec = self.courant
-                    self.courant = noeuds[self.index_prochain]
-                    self.index_prec = self.index_courant
-                    self.index_courant = self.index_prochain
-                    self.courant.vu = True
-                    self.chemin.append(self.index_courant)
-                    self.min_distance = Noeud.Inf
-                    print(f"NOEUD COURANT: {self.index_courant}")
-                else:
-                    self.courant = self.courant.prec
-                    self.index_courant = self.index_prec
-                    self.chemin.pop()
-                    print(f"index_courant {self.index_courant}")
-            
+                plus_petite_distance = Noeud.Inf
+                for i in range(len(noeuds)):
+                    
+                        if(noeuds[i].distance <plus_petite_distance and not noeuds[i].vu):
+                            self.index_courant = i
+                            plus_petite_distance = noeuds[i].distance
+                        
+                            
+                self.courant = noeuds[self.index_courant]
+                self.courant.vu = True
+                print(self.index_courant)
 
+                for i in range(len(self.matrice[self.index_courant])):
+                    distance_voisin = self.matrice[self.index_courant][i] + self.courant.distance
+                    
+                    if(distance_voisin < noeuds[i].distance):
+                        noeuds[i].distance = distance_voisin
+                        noeuds[i].prec = self.index_courant
+                        print(f"nouvelle distance du noeuds : {distance_voisin}")
+                    
+        self.index_courant = fin
+        bool = True
+        while(bool):
+            if(self.index_courant == depart):
+                bool = False
+            self.chemin.append(self.index_courant)
+            self.index_courant = noeuds[self.index_courant].prec
+        self.chemin.reverse()
         return self.chemin
 
 

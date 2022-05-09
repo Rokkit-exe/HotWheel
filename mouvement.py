@@ -12,6 +12,8 @@ class Mouvement:
         self.ENB = gpiozero.PWMOutputDevice(18)
         self.initialise()
 
+
+    # FDF je n'ai pas réussi a réguler la vitesse avec la fonction blink ou pulse
     def forward(self, speed=90, wait=2):
         fade_in = speed / 10000
         fade_out = (100 - speed) / 10000
