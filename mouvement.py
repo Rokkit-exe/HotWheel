@@ -25,7 +25,7 @@ class Mouvement:
                 print("J'arrête")
                 est_detecter = True
         time.sleep(0.2)
-        self.Initialise()
+        #self.Initialise()
         self.Tourner_90("right")
             
     def Est_Sur_Ligne(self, capteur_infrarouge):
