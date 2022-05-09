@@ -25,7 +25,7 @@ class Mouvement:
                 print("J'arrête")
                 est_detecter = True
         time.sleep(0.2)
-        #self.Initialise()
+        self.Initialise()
         self.Tourner_90("right")
             
     def Est_Sur_Ligne(self, capteur_infrarouge):
@@ -38,7 +38,7 @@ class Mouvement:
         return False
         
     
-    def Tourner_90(self, dir, wait=0.39):
+    def Tourner_90(self, dir, wait=1):
         if (dir == "left"):
             self.IN2.on()
             self.IN3.on()
@@ -49,7 +49,7 @@ class Mouvement:
             self.IN4.on()
             self.ENA.on()
             self.ENB.on()
-        #time.sleep(wait)
+        time.sleep(wait)
 
     def Wiggle(self):
         self.turn90("right", 0.5)
