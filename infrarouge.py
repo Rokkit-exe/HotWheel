@@ -9,8 +9,8 @@ class InfraRouge():
         #self.SDT = gpiozero.DigitalInputDevice(21, bounce_time=0.1)
         #self.SDE = gpiozero.DigitalInputDevice(20, bounce_time=0.1)
         
-        self.IRG = gpiozero.DigitalInputDevice(23, bounce_time=0.1)
-        self.IRD = gpiozero.DigitalInputDevice(24, bounce_time=0.1)
+        self.IRG = gpiozero.DigitalInputDevice(23)
+        self.IRD = gpiozero.DigitalInputDevice(24)
 
         self.gauche_actif = None
         self.droite_actif = None
