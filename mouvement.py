@@ -38,7 +38,7 @@ class Mouvement:
         return False
         
     
-    def Tourner_90(self, dir, capteur_infrarouge, est_detecter = False,  wait=0.1):
+    def Tourner_90(self, dir, capteur_infrarouge, est_detecter = False,  wait=1):
         while(not est_detecter):
             if (dir == "left"):
                 self.IN2.on()
