@@ -14,7 +14,7 @@ class Mouvement:
 
 
     # FDF je n'ai pas réussi a réguler la vitesse avec la fonction blink ou pulse
-    def Avancer(self, capteur_infrarouge, speed=30, wait=2, est_detecter=False):
+    def Avancer(self, capteur_infrarouge, speed=20, wait=2, est_detecter=False):
         while(not est_detecter):
             fade_in = speed / 10000
             fade_out = (100 - speed) / 10000
