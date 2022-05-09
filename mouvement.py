@@ -27,20 +27,19 @@ class Mouvement:
 
     def turn(self, dir, capteur_infrarouge, wait=1, est_detecter=False):
         while(not est_detecter):
+            if (dir == "left"):
+                self.IN2.on()
+                self.IN3.on()
+                self.ENA.on()
+                self.ENB.on()
+            elif (dir == "right"):
+                self.IN1.on()
+                self.IN4.on()
+                self.ENA.on()
+                self.ENB.on()
+            time.sleep(wait)
             if(not capteur_infrarouge.gauche_actif and  not capteur_infrarouge.droite_actif):
                 est_detecter = True
-            else:
-                if (dir == "left"):
-                    self.IN2.on()
-                    self.IN3.on()
-                    self.ENA.on()
-                    self.ENB.on()
-                elif (dir == "right"):
-                    self.IN1.on()
-                    self.IN4.on()
-                    self.ENA.on()
-                    self.ENB.on()
-                time.sleep(wait)
         self.initialise()
 
     def wiggle(self):
