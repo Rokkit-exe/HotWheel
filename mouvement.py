@@ -24,7 +24,7 @@ class Mouvement:
             if(capteur_infrarouge.gauche_actif and capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 est_detecter = True
-        time.sleep(0.1)
+        time.sleep(0.2)
         self.Initialise()
         self.Tourner_90("right")
             
