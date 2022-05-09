@@ -38,18 +38,25 @@ class Mouvement:
         return False
         
     
-    def Tourner_90(self, dir, wait=1):
-        if (dir == "left"):
-            self.IN2.on()
-            self.IN3.on()
-            self.ENA.on()
-            self.ENB.on()
-        elif (dir == "right"):
-            self.IN1.on()
-            self.IN4.on()
-            self.ENA.on()
-            self.ENB.on()
-        time.sleep(wait)
+    def Tourner_90(self, dir, capteur_infrarouge, est_detecter = False,  wait=1):
+        while(not est_detecter):
+            if (dir == "left"):
+                self.IN2.on()
+                self.IN3.on()
+                self.ENA.on()
+                self.ENB.on()
+            elif (dir == "right"):
+                self.IN1.on()
+                self.IN4.on()
+                self.ENA.on()
+                self.ENB.on()
+            time.sleep(wait)
+            if(dir == "left"):
+                if(capteur_infrarouge.droite_actif):
+                    est_detecter=True
+            elif(dir == "right"):
+                if(capteur_infrarouge.gauche_actif):
+                    est_detecter = True
 
     def Wiggle(self):
         self.turn90("right", 0.5)
