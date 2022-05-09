@@ -39,6 +39,8 @@ class Mouvement:
         
     
     def Tourner_90(self, dir, capteur_infrarouge, est_detecter = False,  wait=1):
+        self.ENA.value = 0.3
+        self.ENB.value = 0.3
         while(not est_detecter):
             if (dir == "left"):
                 self.IN2.on()
