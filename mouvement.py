@@ -32,8 +32,8 @@ class Mouvement:
         if(capteur_infrarouge.gauche_actif):
             print("Correction vers la gauche")
             
-            self.IN2.blink(on_time=0.05, off_time=0)
-            self.IN3.blink(on_time=0.05, off_time=0)
+            self.IN2.blink(on_time=0.005, off_time=0)
+            self.IN3.blink(on_time=0.005, off_time=0)
             self.ENA.value = 0.3
             self.ENB.value = 0.3
             
