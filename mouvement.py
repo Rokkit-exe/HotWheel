@@ -33,7 +33,9 @@ class Mouvement:
             print("Correction vers la gauche")
             self.Initialise()
             self.IN1.on()
+            self.IN4.on()
             self.ENA.value = 0.4
+            self.ENB.value = 0.4
             
             return True
         elif(capteur_infrarouge.droite_actif):
