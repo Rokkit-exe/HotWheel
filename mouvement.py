@@ -31,7 +31,7 @@ class Mouvement:
     def Est_Sur_Ligne(self, capteur_infrarouge):
         if(capteur_infrarouge.gauche_actif):
             print("Correction vers la gauche")
-            
+            self.IN1.off()
             self.IN2.blink(on_time=0.005, off_time=0)
             self.IN3.blink(on_time=0.005, off_time=0)
             self.ENA.value = 0.3
