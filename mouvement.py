@@ -36,11 +36,18 @@ class Mouvement:
                 self.IN3.on()
                 self.ENA.value = 0.3
                 self.ENB.value = 0.3
-                time.sleep(0.05)
+                time.sleep(0.06)
             self.Initialise()
             return True
         elif(capteur_infrarouge.droite_actif):
-            self.IN3.pulse(fade_in_time=0.2, fade_out_time=0.02)
+            while(capteur_infrarouge.droite_actif):
+                print("Correction vers la droite")
+                self.IN1.on()
+                self.IN4.on()
+                self.ENA.value = 0.3
+                self.ENB.value = 0.3
+                time.sleep(0.06)
+            self.Initialise()
             return True
         return False
         
