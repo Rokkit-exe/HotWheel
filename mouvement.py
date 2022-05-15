@@ -43,13 +43,13 @@ class Mouvement:
             if (dir == "left"):
                 self.IN2.on()
                 self.IN3.on()
-                self.ENA.value = 0.6
-                self.ENB.value = 0.6
+                self.ENA.value = 0.4
+                self.ENB.value = 0.4
             elif (dir == "right"):
                 self.IN1.on()
                 self.IN4.on()
-                self.ENA.value = 0.6
-                self.ENB.value = 0.6
+                self.ENA.value = 0.4
+                self.ENB.value = 0.4
             time.sleep(wait)
             if(dir == "left"):
                 if(capteur_infrarouge.gauche_actif):
