@@ -38,7 +38,7 @@ Infra = InfraRouge()
 M.Avancer(Infra)
 
 
-print(graphe.plus_court_chemin(18, 1)) # [0, 2, 3, 4, 5]
+#print(graphe.plus_court_chemin(18, 1)) # [0, 2, 3, 4, 5]
 # print(graphe.plus_court_chemin(5, 0)) # [5, 4, 3, 2, 0]
 #print(graphe.plus_court_chemin(0, 5)) # [0, 2, 3, 4, 5]
 #print(graphe.plus_court_chemin(5, 0)) # [5, 4, 3, 2, 0]
