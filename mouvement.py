@@ -33,7 +33,7 @@ class Mouvement:
             print("Correction vers la droite")
             self.IN1.on()
             self.ENA.value = 0.4
-            self.Initialise()
+            
             return True
         elif(capteur_infrarouge.droite_actif):
             self.IN3.pulse(fade_in_time=0.2, fade_out_time=0.02)
