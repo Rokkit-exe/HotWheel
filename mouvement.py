@@ -34,8 +34,8 @@ class Mouvement:
             
             self.IN2.blink(on_time=0.05, off_time=0)
             self.IN3.blink(on_time=0.05, off_time=0)
-            self.ENA.value = 0.4
-            self.ENB.value = 0.4
+            self.ENA.value = 0.3
+            self.ENB.value = 0.3
             
             return True
         elif(capteur_infrarouge.droite_actif):
