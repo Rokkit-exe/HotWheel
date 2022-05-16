@@ -43,7 +43,6 @@ class Mouvement:
                 
                 self.IN3.off()
                 #self.IN4.on()
-        time.sleep(0.3)
             
         
     
