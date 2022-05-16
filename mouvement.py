@@ -40,13 +40,13 @@ class Mouvement:
     def Correction(self, dir, capteur_infrarouge):
         if(dir == "gauche"):
             print("correction gauche")
-            while(capteur_infrarouge.gauche_actif):
-                self.IN1.off()
+            #while(capteur_infrarouge.gauche_actif):
+            self.IN1.off()
                 #self.IN2.on()
         elif(dir == "droite"):
             print("correction droite")
-            while(capteur_infrarouge.droite_actif):  
-                self.IN3.off()
+            #while(capteur_infrarouge.droite_actif):  
+            self.IN3.off()
                 #self.IN4.on()
             
         
