@@ -14,20 +14,17 @@ class Mouvement:
 
 
     
-    def Avancer(self, capteur_infrarouge, wait=0.1, est_detecter=False):
+    def Avancer(self, capteur_infrarouge, est_detecter=False):
         while(not est_detecter):
             self.IN1.on()
             self.IN3.on()
             self.ENA.value = 0.3
             self.ENB.value = 0.3
-            time.sleep(wait)
             if(capteur_infrarouge.gauche_actif and capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 est_detecter = True
             elif(capteur_infrarouge.gauche_actif or capteur_infrarouge.droite_actif):
                 self.Est_Sur_Ligne(capteur_infrarouge)
-        time.sleep(0.2)
-        self.Initialise()
             
     def Est_Sur_Ligne(self, capteur_infrarouge):
         if(capteur_infrarouge.gauche_actif):
@@ -36,8 +33,6 @@ class Mouvement:
             self.IN3.on()
             self.ENA.value = 0.3
             self.ENB.value = 0.5
-            time.sleep(0.06)
-            self.Initialise()
             return True
         elif(capteur_infrarouge.droite_actif):
             print("Correction vers la droite")
@@ -45,8 +40,6 @@ class Mouvement:
             self.IN4.on()
             self.ENA.value = 0.5
             self.ENB.value = 0.3
-            time.sleep(0.06)
-            self.Initialise()
             return True
         return False
         
