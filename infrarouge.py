@@ -32,8 +32,10 @@ class InfraRouge():
         #self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
 
     def inactif_gauche(self):
+        print('Inactif gauche')
         self.gauche_actif = False
         #self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
     def inactif_droite(self):
+        print('Inactif droit')
         self.droite_actif = False
         #self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
