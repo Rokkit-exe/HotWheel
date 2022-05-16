@@ -31,11 +31,11 @@ tab_direction = [(1,2), (1,3), (1,5), (4,3), (5,3), (4,6), (2,6), (5,6), (5,9), 
 
 
 graphe = Graphe(matrice_distances)
-
-M = Mouvement()
 Infra = InfraRouge()
+M = Mouvement(Infra)
 
-M.Avancer(Infra)
+
+M.Avancer()
 
 
 #print(graphe.plus_court_chemin(18, 1)) # [0, 2, 3, 4, 5]
