@@ -17,6 +17,7 @@ class Mouvement:
 
     
     def Avancer(self):
+        print('avancer')
         self.IN1.on()
         self.IN3.on()
         self.ENA.value = 0.5
@@ -25,10 +26,10 @@ class Mouvement:
                      
     def main(self, est_detecter=False):
         while (not est_detecter):
+            self.Avancer()
             if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 est_detecter = True
-            self.Avancer()
             if(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
                 self.Correction("gauche", self.capteur_infrarouge)
             if(not self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
