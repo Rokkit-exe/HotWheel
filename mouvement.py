@@ -17,7 +17,6 @@ class Mouvement:
 
     
     def Avancer(self):
-        self.Initialise()
         self.IN1.on()
         self.IN3.on()
         self.ENA.value = 0.5
@@ -25,7 +24,6 @@ class Mouvement:
             
                      
     def main(self, est_detecter=False):
-        self.Initialise()
         while (not est_detecter):
             self.Avancer()
             if(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
