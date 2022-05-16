@@ -23,7 +23,6 @@ class Mouvement:
             self.ENB.value = 0.3
             if(capteur_infrarouge.gauche_actif and capteur_infrarouge.droite_actif):
                 print("J'arrête")
-                
                 est_detecter = True
             elif(capteur_infrarouge.gauche_actif or capteur_infrarouge.droite_actif):
                 self.Est_Sur_Ligne(capteur_infrarouge)
@@ -31,16 +30,12 @@ class Mouvement:
     def Est_Sur_Ligne(self, capteur_infrarouge):
         if(capteur_infrarouge.gauche_actif):
             print("Je rentre correction gauche")
-            while(not capteur_infrarouge.aucun_actif):
-                print("Correction vers la gauche")
-                self.ENA.value = 0.3
-                self.ENB.value = 1
+            self.ENA.value = 0.2
+            self.ENB.value = 1
         elif(capteur_infrarouge.droite_actif):
             print("Je rentre correction droite")
-            while(not capteur_infrarouge.aucun_actif):
-                print("Correction vers la droite")
-                self.ENA.value = 1
-                self.ENB.value = 0.3
+            self.ENA.value = 1
+            self.ENB.value = 0.2
         
     
     def Tourner_90(self, dir, capteur_infrarouge, est_detecter = False,  wait=0.78):

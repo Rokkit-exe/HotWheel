@@ -14,7 +14,7 @@ class InfraRouge():
 
         self.gauche_actif = None
         self.droite_actif = None
-        self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
+        #self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
 
         self.IRG.when_deactivated = self.actif_gauche
         self.IRD.when_deactivated = self.actif_droite
@@ -25,15 +25,15 @@ class InfraRouge():
     def actif_gauche(self):
         print("Actif gauche")
         self.gauche_actif = True
-        self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
+        #self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
     def actif_droite(self):
         print("Actif droite")
         self.droite_actif = True
-        self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
+        #self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
 
     def inactif_gauche(self):
         self.gauche_actif = False
-        self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
+        #self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
     def inactif_droite(self):
         self.droite_actif = False
-        self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
+        #self.aucun_actif = not self.gauche_actif and not self.droite_actif if True else False
