@@ -35,7 +35,7 @@ class Mouvement:
             self.IN2.on()
             self.IN3.on()
             self.ENA.value = 0.3
-            self.ENB.value = 0.3
+            self.ENB.value = 0.5
             time.sleep(0.06)
             self.Initialise()
             return True
@@ -43,7 +43,7 @@ class Mouvement:
             print("Correction vers la droite")
             self.IN1.on()
             self.IN4.on()
-            self.ENA.value = 0.3
+            self.ENA.value = 0.5
             self.ENB.value = 0.3
             time.sleep(0.06)
             self.Initialise()
