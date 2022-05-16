@@ -36,6 +36,7 @@ class Mouvement:
             print("Je rentre correction droite")
             self.ENA.value = 1
             self.ENB.value = 0
+        time.sleep(0.3)
         
     
     def Tourner_90(self, dir, capteur_infrarouge, est_detecter = False,  wait=0.78):
