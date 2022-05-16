@@ -16,7 +16,7 @@ class Mouvement:
 
 
     
-    def Avancer(self, est_detecter=False):
+    def Avancer(self):
         self.Initialise()
         self.IN1.on()
         self.IN3.on()
@@ -24,7 +24,7 @@ class Mouvement:
         self.ENB.value = 0.5
             
                      
-    def main(self):
+    def main(self, est_detecter=False):
         self.Initialise()
         while (not est_detecter):
             self.Avancer()
