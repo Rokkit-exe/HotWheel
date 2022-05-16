@@ -36,14 +36,14 @@ class Mouvement:
                 self.IN2.on()
                 self.IN3.on()
                 self.ENA.value = 0.3
-                self.ENB.value = 0.8
+                self.ENB.value = 0.4
         elif(capteur_infrarouge.droite_actif):
             print("Je rentre correction droite")
             while(not capteur_infrarouge.aucun_actif):
                 print("Correction vers la droite")
                 self.IN3.off()
                 self.IN4.on()
-                self.ENA.value = 0.8
+                self.ENA.value = 0.4
                 self.ENB.value = 0.3
         
     
