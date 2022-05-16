@@ -14,6 +14,7 @@ class InfraRouge():
 
         self.gauche_actif = None
         self.droite_actif = None
+        self.aucun_actif = None
 
         self.IRG.when_deactivated = self.actif_gauche
         self.IRD.when_deactivated = self.actif_droite
