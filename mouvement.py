@@ -42,7 +42,7 @@ class Mouvement:
             print("correction gauche")
             #while(capteur_infrarouge.gauche_actif):
             #self.IN1.off()
-            self.ENA.value = 0.5
+            self.ENA.value = 0.2
             self.ENB.value = 0.8
                 #self.IN2.on()
         elif(dir == "droite"):
@@ -50,7 +50,7 @@ class Mouvement:
             #while(capteur_infrarouge.droite_actif):  
             #self.IN3.off()
             self.ENA.value = 0.8
-            self.ENB.value = 0.5
+            self.ENB.value = 0.2
                 #self.IN4.on()
             
         
