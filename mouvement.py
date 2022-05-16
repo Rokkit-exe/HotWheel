@@ -2,7 +2,7 @@ import gpiozero
 import time
 
 class Mouvement:
-    def __init__(self):
+    def __init__(self, capteur_infrarouge):
         self.IN1 = gpiozero.DigitalOutputDevice(6)
         self.IN2 = gpiozero.DigitalOutputDevice(5)  # moteur G
         self.ENA = gpiozero.PWMOutputDevice(13)
@@ -10,11 +10,13 @@ class Mouvement:
         self.IN3 = gpiozero.DigitalOutputDevice(15)
         self.IN4 = gpiozero.DigitalOutputDevice(14) # moteur D
         self.ENB = gpiozero.PWMOutputDevice(18)
+        
+        self.capteur_infrarouge = capteur_infrarouge
         self.Initialise()
 
 
     
-    def Avancer(self, capteur_infrarouge, est_detecter=False):
+    def Avancer(self, est_detecter=False):
         self.Initialise()
         while(not est_detecter):
             self.IN1.on()
@@ -22,13 +24,13 @@ class Mouvement:
             self.ENA.value = 0.5
             self.ENB.value = 0.5
             
-            if(capteur_infrarouge.gauche_actif and capteur_infrarouge.droite_actif):
+            if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 est_detecter = True
-            elif(capteur_infrarouge.gauche_actif and not capteur_infrarouge.droite_actif):
-                self.Correction("gauche", capteur_infrarouge)
-            elif(not capteur_infrarouge.gauche_actif and capteur_infrarouge.droite_actif):
-                self.Correction("droite", capteur_infrarouge)
+            elif(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
+                self.Correction("gauche", self.capteur_infrarouge)
+            elif(not self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
+                self.Correction("droite", self.capteur_infrarouge)
 
     def Correction(self, dir, capteur_infrarouge):
         if(dir == "gauche"):
