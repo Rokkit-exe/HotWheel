@@ -62,17 +62,17 @@ class Mouvement:
             if (dir == "gauche"):
                 self.IN2.on()
                 self.IN3.on()
-                self.ENA.value = 0.3
-                self.ENB.value = 0.3
+                self.ENA.value = 0.7
+                self.ENB.value = 0.7
             elif (dir == "droite"):
                 self.IN1.on()
                 self.IN4.on()
-                self.ENA.value = 0.3
-                self.ENB.value = 0.3
+                self.ENA.value = 0.7
+                self.ENB.value = 0.7
             time.sleep(wait)
             #if(self.capteur_infrarouge.gauche_actif or self.capteur_infrarouge.droite_actif):
             #    print("IR activé")
-            #    est_detecter=True
+            est_detecter=True
             self.Initialise()
             #if(self.capteur_infrarouge.droite_actif or self.capteur_infrarouge.gauche_actif):
              #   print("IR droite activé")
