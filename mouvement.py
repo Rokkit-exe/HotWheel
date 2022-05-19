@@ -17,73 +17,67 @@ class Mouvement:
 
     
     def Avancer(self):
-        print('avancer')
         self.IN1.on()
         self.IN3.on()
-        self.ENA.value = 0.5
-        self.ENB.value = 0.5
+        self.ENA.value = 0.3
+        self.ENB.value = 0.3
             
                      
     def main(self, est_detecter=False):
         while (not est_detecter):
-            if (not self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
-                self.Avancer()
-            elif(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
+            self.Avancer()
+            time.sleep(0.5)
+            if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
+                time.sleep(0.2)
+                self.Initialise()
+                self.Tourner('droite')
                 est_detecter = True
-            elif(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
-                self.Correction("gauche", self.capteur_infrarouge)
-            elif(not self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
-                self.Correction("droite", self.capteur_infrarouge)
-            
+            if(self.capteur_infrarouge.gauche_actif):
+                print("Correction gauche")
+                self.Correction("gauche", 0.09)
+            if(self.capteur_infrarouge.droite_actif):
+                print("Correction droite")
+                self.Correction("droite", 0.09)
+           
 
-    def Correction(self, dir, capteur_infrarouge):
-        if(dir == "gauche"):
-            print("correction gauche")
-            #while(capteur_infrarouge.gauche_actif):
-            #self.IN1.off()
-            self.ENA.value = 0.2
-            self.ENB.value = 0.8
-                #self.IN2.on()
-        elif(dir == "droite"):
-            print("correction droite")
-            #while(capteur_infrarouge.droite_actif):  
-            #self.IN3.off()
-            self.ENA.value = 0.8
-            self.ENB.value = 0.2
-                #self.IN4.on()
+    def Correction(self, dir, wait = 0.70):
+        self.Initialise()
+        if (dir == "gauche"):
+            self.IN2.on()
+            self.IN3.on()
+            self.ENA.value = 0.3
+            self.ENB.value = 0.3
+        elif (dir == "droite"):
+            self.IN1.on()
+            self.IN4.on()
+            self.ENA.value = 0.3
+            self.ENB.value = 0.3
+        time.sleep(wait)
             
         
     
-    def Tourner_90(self, dir, capteur_infrarouge, est_detecter = False,  wait=0.78):
+    def Tourner(self, dir, est_detecter = False,  wait=1.5):
         while(not est_detecter):
-            if (dir == "left"):
+            if (dir == "gauche"):
                 self.IN2.on()
                 self.IN3.on()
-                self.ENA.value = 0.4
-                self.ENB.value = 0.4
-            elif (dir == "right"):
+                self.ENA.value = 0.3
+                self.ENB.value = 0.3
+            elif (dir == "droite"):
                 self.IN1.on()
                 self.IN4.on()
-                self.ENA.value = 0.4
-                self.ENB.value = 0.4
+                self.ENA.value = 0.3
+                self.ENB.value = 0.3
             time.sleep(wait)
-            if(dir == "left"):
-                if(capteur_infrarouge.gauche_actif):
-                    print("IR gauche activé")
-                    est_detecter=True
-            elif(dir == "right"):
-                if(capteur_infrarouge.droite_actif):
-                    print("IR droite activé")
-                    est_detecter = True
-
-    def Wiggle(self):
-        self.turn90("right", 0.5)
-        self.turn90("left", 0.5)
-        self.turn90("right", 1)
-        self.turn90("right", 1)
-        self.turn90("left", 0.5)
-        self.turn90("left", 0.5)
+            #if(self.capteur_infrarouge.gauche_actif or self.capteur_infrarouge.droite_actif):
+            #    print("IR activé")
+            #    est_detecter=True
+            self.Initialise()
+            #if(self.capteur_infrarouge.droite_actif or self.capteur_infrarouge.gauche_actif):
+             #   print("IR droite activé")
+             #   est_detecter = True
+             #   self.Initialise()
 
     def Initialise(self):
         self.ENA.off()
