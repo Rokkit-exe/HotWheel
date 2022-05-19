@@ -57,7 +57,7 @@ class Mouvement:
             
         
     
-    def Tourner(self, dir, est_detecter = False,  wait=1):
+    def Tourner(self, dir, est_detecter = False,  wait=1.5):
         while(not est_detecter):
             if (dir == "gauche"):
                 self.IN2.on()
@@ -70,10 +70,10 @@ class Mouvement:
                 self.ENA.value = 0.3
                 self.ENB.value = 0.3
             time.sleep(wait)
-            if(self.capteur_infrarouge.gauche_actif or self.capteur_infrarouge.droite_actif):
-                print("IR activé")
-                est_detecter=True
-                self.Initialise()
+            #if(self.capteur_infrarouge.gauche_actif or self.capteur_infrarouge.droite_actif):
+            #    print("IR activé")
+            #    est_detecter=True
+            self.Initialise()
             #if(self.capteur_infrarouge.droite_actif or self.capteur_infrarouge.gauche_actif):
              #   print("IR droite activé")
              #   est_detecter = True
