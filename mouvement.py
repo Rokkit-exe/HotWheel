@@ -41,12 +41,12 @@ class Mouvement:
 
     def Correction(self, dir, wait = 0.78):
         self.Initialise()
-        if (dir == "left"):
+        if (dir == "gauche"):
             self.IN2.on()
             self.IN3.on()
             self.ENA.value = 0.4
             self.ENB.value = 0.4
-        elif (dir == "right"):
+        elif (dir == "droite"):
             self.IN1.on()
             self.IN4.on()
             self.ENA.value = 0.4
