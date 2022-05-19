@@ -41,7 +41,7 @@ class Mouvement:
                 self.Correction("droite", 0.09)
            
 
-    def Correction(self, dir, wait = 0.78):
+    def Correction(self, dir, wait = 0.70):
         self.Initialise()
         if (dir == "gauche"):
             self.IN2.on()
