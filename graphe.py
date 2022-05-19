@@ -21,8 +21,6 @@ class Graphe:
         noeuds[depart].distance = 0
         noeuds[depart].prec = 0
 
-        
-
 #self.index_courant,
         while(not self.fin_explorer):
             if(noeuds[fin] == self.courant):
