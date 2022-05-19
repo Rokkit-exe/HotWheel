@@ -37,7 +37,7 @@ class Mouvement:
             if(not self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("Correction droite")
                 self.Correction("droite", 0.09)
-            
+        self.Tourner('droite')    
 
     def Correction(self, dir, wait = 0.78):
         self.Initialise()
@@ -58,12 +58,12 @@ class Mouvement:
     
     def Tourner(self, dir, est_detecter = False,  wait=0.78):
         while(not est_detecter):
-            if (dir == "left"):
+            if (dir == "gauche"):
                 self.IN2.on()
                 self.IN3.on()
                 self.ENA.value = 0.4
                 self.ENB.value = 0.4
-            elif (dir == "right"):
+            elif (dir == "droite"):
                 self.IN1.on()
                 self.IN4.on()
                 self.ENA.value = 0.4
