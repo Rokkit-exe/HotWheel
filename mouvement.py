@@ -52,6 +52,7 @@ class Mouvement:
             self.ENA.value = 0.4
             self.ENB.value = 0.4
         time.sleep(wait)
+        self.Initialise()
             
         
     
