@@ -19,8 +19,8 @@ class Mouvement:
     def Avancer(self):
         self.IN1.on()
         self.IN3.on()
-        self.ENA.value = 0.5
-        self.ENB.value = 0.5
+        self.ENA.value = 0.3
+        self.ENB.value = 0.3
             
                      
     def main(self, est_detecter=False):
@@ -46,13 +46,13 @@ class Mouvement:
         if (dir == "gauche"):
             self.IN2.on()
             self.IN3.on()
-            self.ENA.value = 0.4
-            self.ENB.value = 0.5
+            self.ENA.value = 0.3
+            self.ENB.value = 0.3
         elif (dir == "droite"):
             self.IN1.on()
             self.IN4.on()
-            self.ENA.value = 0.5
-            self.ENB.value = 0.4
+            self.ENA.value = 0.3
+            self.ENB.value = 0.3
         time.sleep(wait)
             
         
@@ -62,13 +62,13 @@ class Mouvement:
             if (dir == "gauche"):
                 self.IN2.on()
                 self.IN3.on()
-                self.ENA.value = 0.5
-                self.ENB.value = 0.5
+                self.ENA.value = 0.3
+                self.ENB.value = 0.3
             elif (dir == "droite"):
                 self.IN1.on()
                 self.IN4.on()
-                self.ENA.value = 0.5
-                self.ENB.value = 0.5
+                self.ENA.value = 0.3
+                self.ENB.value = 0.3
             time.sleep(wait)
             if(self.capteur_infrarouge.gauche_actif or self.capteur_infrarouge.droite_actif):
                 print("IR activé")
