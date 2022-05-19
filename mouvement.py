@@ -71,7 +71,7 @@ class Mouvement:
                 self.ENB.value = 0.5
             time.sleep(wait)
             if(self.capteur_infrarouge.gauche_actif or self.capteur_infrarouge.droite_actif):
-                print("IR gauche activé")
+                print("IR activé")
                 est_detecter=True
                 self.Initialise()
             #if(self.capteur_infrarouge.droite_actif or self.capteur_infrarouge.gauche_actif):
