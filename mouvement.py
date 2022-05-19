@@ -27,7 +27,6 @@ class Mouvement:
     def main(self, est_detecter=False):
         while (not est_detecter):
             self.Avancer()
-            time.sleep(0.2)
             if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 est_detecter = True
