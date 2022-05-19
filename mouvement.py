@@ -33,10 +33,10 @@ class Mouvement:
                 est_detecter = True
             if(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
                 print("Correction gauche")
-                self.Correction("gauche", 0.2)
+                self.Correction("gauche", 0.5)
             if(not self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("Correction droite")
-                self.Correction("droite", 0.2)
+                self.Correction("droite", 0.5)
             
 
     def Correction(self, dir, wait = 0.78):
