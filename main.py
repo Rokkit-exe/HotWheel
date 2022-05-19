@@ -35,7 +35,9 @@ Infra = InfraRouge()
 M = Mouvement(Infra)
 
 
-M.main()
+#M.main()
+M.Initialise()
+
 
 
 #print(graphe.plus_court_chemin(18, 1)) # [0, 2, 3, 4, 5]
