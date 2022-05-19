@@ -26,18 +26,18 @@ class Mouvement:
                      
     def main(self, est_detecter=False):
         while (not est_detecter):
-            if (not self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
-                self.Avancer()
-            elif(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
+            self.Avancer()
+            
+            if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 est_detecter = True
-            elif(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
-                self.Correction("gauche", self.capteur_infrarouge)
-            elif(not self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
-                self.Correction("droite", self.capteur_infrarouge)
+            if(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
+                self.Correction("gauche")
+            if(not self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
+                self.Correction("droite")
             
 
-    def Correction(self, dir, capteur_infrarouge):
+    def Correction(self, dir):
         if(dir == "gauche"):
             print("correction gauche")
             #while(capteur_infrarouge.gauche_actif):
@@ -51,7 +51,7 @@ class Mouvement:
             #self.IN3.off()
             self.ENA.value = 0.8
             self.ENB.value = 0.2
-                #self.IN4.on()
+            #self.IN4.on()
             
         
     
