@@ -25,10 +25,9 @@ class Mouvement:
             
                      
     def main(self):
-        while (self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
-            if (not self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
-                self.Avancer()
-            elif(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
+        while (not self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
+            self.Avancer()
+            if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
             elif(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
                 self.Correction("gauche", self.capteur_infrarouge)
@@ -54,7 +53,7 @@ class Mouvement:
             
         
     
-    def Tourner_90(self, dir, capteur_infrarouge, est_detecter = False,  wait=0.78):
+    def Tourner(self, dir, capteur_infrarouge, est_detecter = False,  wait=0.78):
         while(not est_detecter):
             if (dir == "left"):
                 self.IN2.on()
