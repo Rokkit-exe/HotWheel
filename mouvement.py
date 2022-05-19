@@ -38,7 +38,8 @@ class Mouvement:
             if(not self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("Correction droite")
                 self.Correction("droite", 0.09)
-        self.Tourner('droite')    
+        self.Tourner('droite')   
+        self.main() 
 
     def Correction(self, dir, wait = 0.78):
         self.Initialise()
