@@ -26,19 +26,20 @@ class Mouvement:
     def main(self, est_detecter=False):
         while (not est_detecter):
             self.Avancer()
+            time.sleep(0.5)
             if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 est_detecter = True
                 time.sleep(0.2)
                 self.Initialise()
+                self.Tourner('droite')
             if(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
                 print("Correction gauche")
                 self.Correction("gauche", 0.09)
             if(not self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("Correction droite")
                 self.Correction("droite", 0.09)
-        self.Tourner('droite')   
-        self.main() 
+           
 
     def Correction(self, dir, wait = 0.78):
         self.Initialise()
@@ -70,22 +71,14 @@ class Mouvement:
                 self.ENA.value = 0.7
                 self.ENB.value = 0.6
             time.sleep(wait)
-            if(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
+            if(self.capteur_infrarouge.gauche_actif or self.capteur_infrarouge.droite_actif):
                 print("IR gauche activé")
                 est_detecter=True
                 self.Initialise()
-            if(self.capteur_infrarouge.droite_actif and not self.capteur_infrarouge.gauche_actif):
+            if(self.capteur_infrarouge.droite_actif or self.capteur_infrarouge.gauche_actif):
                 print("IR droite activé")
                 est_detecter = True
                 self.Initialise()
-
-    def Wiggle(self):
-        self.turn90("right", 0.5)
-        self.turn90("left", 0.5)
-        self.turn90("right", 1)
-        self.turn90("right", 1)
-        self.turn90("left", 0.5)
-        self.turn90("left", 0.5)
 
     def Initialise(self):
         self.ENA.off()
