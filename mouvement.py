@@ -27,34 +27,32 @@ class Mouvement:
     def main(self, est_detecter=False):
         while (not est_detecter):
             self.Avancer()
+            time.sleep(0.2)
             if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 est_detecter = True
             if(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
-                self.Correction("gauche")
+                self.Tourner("gauche", False, 0.2)
             if(not self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
-                self.Correction("droite")
+                self.Tourner("droite", False, 0.2)
             
 
-    def Correction(self, dir):
-        if(dir == "gauche"):
-            print("correction gauche")
-            #while(capteur_infrarouge.gauche_actif):
-            #self.IN1.off()
-            self.ENA.value = 0
-            self.ENB.value = 0.8
-                #self.IN2.on()
-        elif(dir == "droite"):
-            print("correction droite")
-            #while(capteur_infrarouge.droite_actif):  
-            #self.IN3.off()
-            self.ENA.value = 0.8
-            self.ENB.value = 0
-            #self.IN4.on()
+    def Correction(self, dir, wait = 0.78):
+        if (dir == "left"):
+            self.IN2.on()
+            self.IN3.on()
+            self.ENA.value = 0.4
+            self.ENB.value = 0.4
+        elif (dir == "right"):
+            self.IN1.on()
+            self.IN4.on()
+            self.ENA.value = 0.4
+            self.ENB.value = 0.4
+        time.sleep(wait)
             
         
     
-    def Tourner(self, dir, capteur_infrarouge, est_detecter = False,  wait=0.78):
+    def Tourner(self, dir, est_detecter = False,  wait=0.78):
         while(not est_detecter):
             if (dir == "left"):
                 self.IN2.on()
@@ -68,11 +66,11 @@ class Mouvement:
                 self.ENB.value = 0.4
             time.sleep(wait)
             if(dir == "left"):
-                if(capteur_infrarouge.gauche_actif):
+                if(self.capteur_infrarouge.gauche_actif):
                     print("IR gauche activé")
                     est_detecter=True
             elif(dir == "right"):
-                if(capteur_infrarouge.droite_actif):
+                if(self.capteur_infrarouge.droite_actif):
                     print("IR droite activé")
                     est_detecter = True
 
