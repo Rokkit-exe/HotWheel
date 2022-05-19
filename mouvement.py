@@ -24,11 +24,13 @@ class Mouvement:
         self.ENB.value = 0.5
             
                      
-    def main(self):
-        while (not self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
-            self.Avancer()
-            if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
+    def main(self, est_detecter=False):
+        while (not est_detecter):
+            if (not self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
+                self.Avancer()
+            elif(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
+                est_detecter = True
             elif(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
                 self.Correction("gauche", self.capteur_infrarouge)
             elif(not self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
