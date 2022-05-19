@@ -32,7 +32,7 @@ class Mouvement:
                 time.sleep(0.2)
                 self.Initialise()
                 self.Tourner('droite')
-                #est_detecter = True
+                est_detecter = True
             if(self.capteur_infrarouge.gauche_actif):
                 print("Correction gauche")
                 self.Correction("gauche", 0.09)

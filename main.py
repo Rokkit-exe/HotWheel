@@ -35,8 +35,8 @@ Infra = InfraRouge()
 M = Mouvement(Infra)
 
 
-#M.main()
-M.Initialise()
+M.main()
+#M.Initialise()
 
 
 
