@@ -40,6 +40,7 @@ class Mouvement:
             
 
     def Correction(self, dir, wait = 0.78):
+        self.Initialise()
         if (dir == "left"):
             self.IN2.on()
             self.IN3.on()
