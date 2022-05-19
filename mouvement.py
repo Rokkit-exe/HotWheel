@@ -32,9 +32,9 @@ class Mouvement:
                 print("J'arrête")
                 est_detecter = True
             if(self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
-                self.Tourner("gauche", False, 0.2)
+                self.Correction("gauche", False, 0.2)
             if(not self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
-                self.Tourner("droite", False, 0.2)
+                self.Correction("droite", False, 0.2)
             
 
     def Correction(self, dir, wait = 0.78):
