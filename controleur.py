@@ -46,29 +46,21 @@ class Controler:
         if (cur_dir == 'n'):
             if (dir == 'e'):
                 return 'right'
-            if (dir == 's'):
-                return 'right', 'right'
             if (dir == 'w'):
                 return 'left'
         if (cur_dir == 'e'):
             if (dir == 's'):
                 return 'right'
-            if (dir == 'w'):
-                return 'right', 'right'
             if (dir == 'n'):
                 return 'left'
         if (cur_dir == 's'):
             if (dir == 'w'):
                 return 'right'
-            if (dir == 'n'):
-                return 'right', 'right'
             if (dir == 'e'):
                 return 'left'
         if (cur_dir == 'w'):
             if (dir == 'n'):
                 return 'right'
-            if (dir == 'e'):
-                return 'right', 'right'
             if (dir == 's'):
                 return 'left'
 

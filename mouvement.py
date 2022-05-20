@@ -22,7 +22,6 @@ class Mouvement:
         self.ENA.value = 0.3
         self.ENB.value = 0.3
             
-                     
     def main(self, est_detecter=False):
         while (not est_detecter):
             self.Avancer()
