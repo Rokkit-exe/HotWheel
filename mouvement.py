@@ -65,7 +65,7 @@ class Mouvement:
                 self.IN3.on()
                 self.ENA.value = 0.4
                 self.ENB.value = 0.4
-                time.sleep(wait)
+
                 if(self.capteur_infrarouge.gauche_actif):
                     print("IR activé")
                     est_detecter=True
@@ -75,7 +75,7 @@ class Mouvement:
                 self.IN4.on()
                 self.ENA.value = 0.4
                 self.ENB.value = 0.4
-                time.sleep(wait)
+        
                 if(self.capteur_infrarouge.droite_actif):
                     print("IR activé")
                     est_detecter=True
