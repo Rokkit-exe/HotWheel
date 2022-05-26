@@ -39,7 +39,12 @@ class Controler:
         self.stop
         self.thread_droite.join()
         self.thread_gauche.join() """
+        self.thread_droite.start()
+        self.thread_gauche.start()
         self.mouvement.main()
+        self.stop
+        self.thread_droite.join()
+        self.thread_gauche.join()
 
     def set_value_capteur(self, infra, dir):
         while not self.stop:
