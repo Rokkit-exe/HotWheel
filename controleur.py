@@ -1,19 +1,28 @@
 
+from ast import arg
+import time, threading
+
+
 class Controler: 
-    def __init__(self, mouvement, graphe, matrice, tab_points, direction) -> None:
+    def __init__(self, mouvement, graphe, tab_points, direction, infra) -> None:
         self.cur_direction = direction
         self.next_direction = None
         self.mouvement = mouvement
         self.graphe = graphe
-        self.matrice = matrice
         self.chemin = None
         self.tab_points = tab_points
         self.point_courant = None
         self.prochain_point = None
+        self.stop = False
+        self.infra = infra
+        self.thread_gauche = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'gauche'))
+        self.thread_droite = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'droite'))
 
-    def main(self, depart, fin):
-        self.chemin = self.graphe.plus_court_chemin(depart, fin)
+    def Demarer(self, depart, fin):
+        """ self.chemin = self.graphe.plus_court_chemin(depart, fin)
         index = 0
+        self.thread_droite.start()
+        self.thread_gauche.start()
         while index != len(self.chemin - 1):
             self.mouvement.avancer()
             self.point_courant = self.chemin[index]
@@ -25,7 +34,18 @@ class Controler:
                 self.cur_direction = self.next_direction
             index += 1
 
+        self.stop
+        self.thread_droite.join()
+        self.thread_gauche.join() """
+        self.mouvement.main()
 
+    def set_value_capteur(self, infra, dir):
+        while not self.stop:
+            time.sleep()
+            if (dir == 'gauche'):
+                infra.gauche_actif = infra.IRG.value if False else True
+            else:
+                infra.droite_actif = infra.IRD.value if False else True
 
 
     def get_direction(self, point1, point2):

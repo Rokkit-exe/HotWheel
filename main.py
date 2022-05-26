@@ -2,6 +2,7 @@ import sys
 from graphe import Graphe
 from mouvement import Mouvement
 from infrarouge import InfraRouge
+from controleur import Controler
 Inf = sys.maxsize
 
 
@@ -33,9 +34,14 @@ tab_direction = [(1,2), (1,3), (1,5), (4,3), (5,3), (4,6), (2,6), (5,6), (5,9), 
 graphe = Graphe(matrice_distances)
 Infra = InfraRouge()
 M = Mouvement(Infra)
+C = Controler(M, graphe, matrice_distances, tab_direction, 'n', Infra)
+
+C.Demarer(0, 5)
+
 
 
 M.main()
+
 #M.Initialise()
 
 
