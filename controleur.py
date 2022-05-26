@@ -4,7 +4,7 @@ import time, threading
 
 
 class Controler: 
-    def __init__(self, mouvement, graphe, tab_points, direction, infra) -> None:
+    def __init__(self, mouvement, graphe, tab_points, direction, infra):
         self.cur_direction = direction
         self.next_direction = None
         self.mouvement = mouvement
