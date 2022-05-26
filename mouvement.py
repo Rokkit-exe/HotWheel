@@ -56,8 +56,8 @@ class Mouvement:
             
         
     
-    def Tourner(self, dir, est_detecter = False,  wait=1.5):
-        time.sleep(0.5)
+    def Tourner(self, dir, est_detecter = False,  wait=0.5):
+        time.sleep(0.6)
         self.Initialise()
         while(not est_detecter):
             if (dir == "gauche"):
