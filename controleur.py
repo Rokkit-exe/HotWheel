@@ -18,7 +18,7 @@ class Controler:
         self.infra = infra
         self.thread_gauche = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'gauche'))
         self.thread_droite = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'droite'))
-        self.lock = Lock()
+        self.lock = threading.Lock()
 
     def Demarer(self, depart, fin):
         """ self.chemin = self.graphe.plus_court_chemin(depart, fin)
