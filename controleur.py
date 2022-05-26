@@ -1,5 +1,6 @@
 
 from ast import arg
+from multiprocessing import Lock
 import time, threading
 
 
@@ -15,8 +16,9 @@ class Controler:
         self.prochain_point = None
         self.stop = False
         self.infra = infra
-        self.thread_gauche = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'gauche'))
-        self.thread_droite = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'droite'))
+        self.thread_gauche = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'gauche', self.lock))
+        self.thread_droite = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'droite', self.lock))
+        self.lock = Lock()
 
     def Demarer(self, depart, fin):
         """ self.chemin = self.graphe.plus_court_chemin(depart, fin)
@@ -39,13 +41,15 @@ class Controler:
         self.thread_gauche.join() """
         self.mouvement.main()
 
-    def set_value_capteur(self, infra, dir):
+    def set_value_capteur(self, infra, dir, lock):
         while not self.stop:
             time.sleep()
             if (dir == 'gauche'):
-                infra.gauche_actif = infra.IRG.value if False else True
+                with self.lock:
+                    infra.gauche_actif = infra.IRG.value if False else True
             else:
-                infra.droite_actif = infra.IRD.value if False else True
+                with self.lock:
+                    infra.droite_actif = infra.IRD.value if False else True
 
 
     def get_direction(self, point1, point2):
