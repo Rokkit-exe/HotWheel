@@ -45,7 +45,7 @@ class Mouvement:
             print(f" droite: {self.capteur_infrarouge.droite_actif}")
             print(f" gauche: {self.capteur_infrarouge.gauche_actif}")
             time.sleep(0.5)
-            if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
+            if(not self.capteur_infrarouge.gauche_actif and not self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 time.sleep(0.2)
                 self.Initialise()
