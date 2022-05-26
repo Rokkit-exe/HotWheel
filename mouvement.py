@@ -28,7 +28,7 @@ class Mouvement:
             self.ENB.value = 0.2
             print(f" droite: {self.capteur_infrarouge.droite_actif}")
             print(f" gauche: {self.capteur_infrarouge.gauche_actif}")
-            
+            time.sleep(0.2)
             if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 self.Initialise()
