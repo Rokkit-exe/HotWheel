@@ -55,17 +55,17 @@ class Mouvement:
                 print("Correction droite")
                 self.Correction("droite", 0.09)
 
-    def Correction(self, dir, wait = 0.70):
+    def Correction(self, dir, wait = 0.3):
         self.Initialise()
         if (dir == "gauche"):
-            self.IN1.on()
+            self.IN2.on()
             self.IN3.on()
             self.ENA.value = 0.3
-            self.ENB.value = 0.6
+            self.ENB.value = 0.3
         elif (dir == "droite"):
             self.IN1.on()
-            self.IN3.on()
-            self.ENA.value = 0.6
+            self.IN4.on()
+            self.ENA.value = 0.3
             self.ENB.value = 0.3
         time.sleep(wait)
             
