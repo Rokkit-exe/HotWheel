@@ -37,6 +37,7 @@ class Mouvement:
             
     def main(self, est_detecter=False):
         while (not est_detecter):
+            self.Initialise()
             self.IN1.on()
             self.IN3.on()
             self.ENA.value = 0.3
