@@ -42,7 +42,7 @@ class Controler:
         self.thread_droite.start()
         self.thread_gauche.start()
         self.mouvement.main()
-        self.stop
+        self.stop = True
         self.thread_droite.join()
         self.thread_gauche.join()
 
