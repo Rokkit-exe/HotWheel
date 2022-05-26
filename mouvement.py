@@ -47,14 +47,12 @@ class Mouvement:
             time.sleep(0.5)
             if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
-                time.sleep(0.2)
                 self.Initialise()
-                self.Tourner('droite')
                 est_detecter = True
-            if(self.capteur_infrarouge.gauche_actif):
+            elif(self.capteur_infrarouge.gauche_actif):
                 print("Correction gauche")
                 self.Correction("gauche", 0.09)
-            if(self.capteur_infrarouge.droite_actif):
+            elif(self.capteur_infrarouge.droite_actif):
                 print("Correction droite")
                 self.Correction("droite", 0.09)
 
@@ -87,14 +85,11 @@ class Mouvement:
                 self.ENA.value = 0.7
                 self.ENB.value = 0.7
             time.sleep(wait)
-            #if(self.capteur_infrarouge.gauche_actif or self.capteur_infrarouge.droite_actif):
-            #    print("IR activé")
-            est_detecter=True
-            self.Initialise()
-            #if(self.capteur_infrarouge.droite_actif or self.capteur_infrarouge.gauche_actif):
-             #   print("IR droite activé")
-             #   est_detecter = True
-             #   self.Initialise()
+            if(self.capteur_infrarouge.gauche_actif or self.capteur_infrarouge.droite_actif):
+                print("IR activé")
+                est_detecter=True
+                self.Initialise()
+            
 
     def Initialise(self):
         self.ENA.off()
