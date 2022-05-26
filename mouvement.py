@@ -29,17 +29,17 @@ class Mouvement:
             print(f" droite: {self.capteur_infrarouge.droite_actif}")
             print(f" gauche: {self.capteur_infrarouge.gauche_actif}")
             time.sleep(0.5)
-            
+            if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
+                print("J'arrête")
+                self.Initialise()
+                est_detecter = True
             if(self.capteur_infrarouge.gauche_actif):
                 print("Correction gauche")
                 self.Correction("gauche", 0.09)
             if(self.capteur_infrarouge.droite_actif):
                 print("Correction droite")
                 self.Correction("droite", 0.09)
-            if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
-                print("J'arrête")
-                self.Initialise()
-                est_detecter = True
+            
 
     def Correction(self, dir, wait = 0.3):
         self.Initialise()

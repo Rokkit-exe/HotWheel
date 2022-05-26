@@ -49,7 +49,7 @@ class Controler:
 
     def set_value_capteur(self, infra, dir):
         while not self.stop:
-            time.sleep(0.1)
+            time.sleep(0.05)
             if (dir == 'gauche'):
                 with self.lock:
                     infra.gauche_actif = infra.IRG.value if True else False
