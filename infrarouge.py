@@ -9,6 +9,7 @@ class InfraRouge():
         self.compteur_droite = None
         self.gauche_actif = None
         self.droite_actif = None
+        
         self.doit_arreter = False
         self.IRG.when_deactivated = self.actif_gauche
         self.IRD.when_deactivated = self.actif_droite
@@ -17,24 +18,15 @@ class InfraRouge():
     
 
     def actif_gauche(self):
-        if(self.compteur_gauche == None):
-            self.doit_arreter = False
-            self.compteur_gauche = time.perf_counter()
-        if(self.compteur_droite - time.perf_counter() > 0.1 and not self.doit_arreter):
+        
+        if(self.droite_actif):
             self.doit_arreter = True
-            self.compteur_gauche = None
-            self.compteur_droite = None
 
         
         
     def actif_droite(self):
-        if(self.compteur_droite == None):
-            self.doit_arreter = False
-            self.compteur_droite = time.perf_counter()
-        if(self.compteur_gauche - time.perf_counter() > 0.1 and not self.doit_arreter):
+        if(self.gauche_actif):
             self.doit_arreter = True
-            self.compteur_gauche = None
-            self.compteur_droite = None
 
 
     def inactif_gauche(self):
