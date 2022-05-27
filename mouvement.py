@@ -20,8 +20,8 @@ class Mouvement:
             self.Initialise()
             self.IN1.on()
             self.IN3.on()
-            self.ENA.value = 0.3
-            self.ENB.value = 0.3
+            self.ENA.value = 0.4
+            self.ENB.value = 0.4
             time.sleep(0.01)
             if(self.capteur_infrarouge.doit_arreter):
                 print("J'arrête")
