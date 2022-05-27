@@ -60,6 +60,7 @@ class Controler:
 
 
     def get_direction(self, point1, point2):
+        print(point1[0])
         if (point1[0] == point2[0]): # x
             if (point1[1] > point2[1]):
                 return 'n'
