@@ -23,6 +23,7 @@ class Mouvement:
             self.ENA.value = 0.3
             self.ENB.value = 0.3
             time.sleep(0.01)
+            print(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif)
             if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 est_detecter = True
