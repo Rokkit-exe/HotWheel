@@ -28,10 +28,9 @@ class Graphe:
             else:
                 plus_petite_distance = Noeud.Inf
                 for i in range(len(noeuds)):
-                    
-                        if(noeuds[i].distance <plus_petite_distance and not noeuds[i].vu):
-                            self.index_courant = i
-                            plus_petite_distance = noeuds[i].distance
+                    if(noeuds[i].distance < plus_petite_distance and not noeuds[i].vu):
+                        self.index_courant = i
+                        plus_petite_distance = noeuds[i].distance
                         
                             
                 self.courant = noeuds[self.index_courant]
