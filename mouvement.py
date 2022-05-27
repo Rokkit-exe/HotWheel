@@ -26,26 +26,26 @@ class Mouvement:
             if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 est_detecter = True
-            
-            elif(self.capteur_infrarouge.gauche_actif):
-                print("Correction gauche")
-                self.Correction("gauche")
-            elif(self.capteur_infrarouge.droite_actif):
-                print("Correction droite")
-                self.Correction("droite")
+            else:
+                if(self.capteur_infrarouge.gauche_actif):
+                    print("Correction gauche")
+                    self.Correction("gauche")
+                if(self.capteur_infrarouge.droite_actif):
+                    print("Correction droite")
+                    self.Correction("droite")
 
     def Correction(self, dir, wait=0.05):
         #self.Initialise()
         if (dir == "gauche"):
             self.IN2.on()
             self.IN3.on()
-            self.ENA.value = 0.37
-            self.ENB.value = 0.37
+            self.ENA.value = 0.35
+            self.ENB.value = 0.35
         elif (dir == "droite"):
             self.IN1.on()
             self.IN4.on()
-            self.ENA.value = 0.37
-            self.ENB.value = 0.37
+            self.ENA.value = 0.35
+            self.ENB.value = 0.35
         time.sleep(wait)
     
     def Tourner(self, dir, est_detecter = False,  wait=0.5):
