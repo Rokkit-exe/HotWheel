@@ -27,8 +27,6 @@ class Mouvement:
             if(self.capteur_infrarouge.doit_arreter):
                 print("J'arrête")
                 est_detecter = True
-            elif(not self.capteur_infrarouge.doit_arreter):
-                pass
             else:
                 if(self.capteur_infrarouge.gauche_actif):
                     print("Correction gauche")
