@@ -14,8 +14,6 @@ class Mouvement:
         self.capteur_infrarouge = capteur_infrarouge
         self.Initialise()
 
-
-    
     def Avancer(self):
         pass
             
@@ -40,7 +38,7 @@ class Mouvement:
                 self.Correction("droite", 0.09)
             
 
-    def Correction(self, dir, wait = 0.3):
+    def Correction(self, dir, wait=0.09):
         self.Initialise()
         if (dir == "gauche"):
             self.IN2.on()
@@ -53,8 +51,6 @@ class Mouvement:
             self.ENA.value = 0.3
             self.ENB.value = 0.3
         time.sleep(wait)
-            
-        
     
     def Tourner(self, dir, est_detecter = False,  wait=0.5):
         time.sleep(0.8)
@@ -65,7 +61,6 @@ class Mouvement:
                 self.IN3.on()
                 self.ENA.value = 0.4
                 self.ENB.value = 0.4
-
                 if(self.capteur_infrarouge.gauche_actif):
                     print("IR activé")
                     est_detecter=True
