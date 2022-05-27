@@ -1,4 +1,5 @@
 import gpiozero
+import time
 
 class InfraRouge():
     def __init__(self):   
@@ -21,9 +22,11 @@ class InfraRouge():
         self.droite_actif = True
 
     def inactif_gauche(self):
+        time.sleep(0.05)
         self.gauche_actif = False
         
     def inactif_droite(self):
+        time.sleep(0.05)
         self.droite_actif = False
 
     
