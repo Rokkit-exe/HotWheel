@@ -35,7 +35,6 @@ class InfraRouge():
             self.compteur_droite = time.perf_counter()
         if(self.compteur_gauche - time.perf_counter() > 0.5 and not self.doit_arreter):
             self.doit_arreter = True
-            self.doit_arreter = True
             self.compteur_gauche = None
             self.compteur_droite = None
 
