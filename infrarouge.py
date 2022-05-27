@@ -22,11 +22,11 @@ class InfraRouge():
         self.droite_actif = True
 
     def inactif_gauche(self):
-        time.sleep(0.05)
+        time.sleep(0.07)
         self.gauche_actif = False
         
     def inactif_droite(self):
-        time.sleep(0.05)
+        time.sleep(0.07)
         self.droite_actif = False
 
     
