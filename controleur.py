@@ -64,14 +64,14 @@ class Controler:
                     if infra.IRG.value:
                         infra.gauche_actif =  True 
                     else:
-                        #time.sleep(0.05)
+                        time.sleep(0.04)
                         infra.gauche_actif = False
             elif(dir == 'right'):
                 with self.lock:
                     if infra.IRD.value:
                         infra.droite_actif = True 
                     else:
-                        #time.sleep(0.05)
+                        time.sleep(0.04)
                         infra.droite_actif = False
 
 
