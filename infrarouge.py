@@ -18,14 +18,14 @@ class InfraRouge():
     
 
     def actif_gauche(self):
-        time.sleep(0.1)
+        time.sleep(0.05)
         if(self.droite_actif):
             self.doit_arreter = True
 
         
         
     def actif_droite(self):
-        time.sleep(0.1)
+        time.sleep(0.05)
         if(self.gauche_actif):
             self.doit_arreter = True
 
