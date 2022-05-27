@@ -25,7 +25,7 @@ class Controler:
         index = 0
         self.thread_droite.start()
         self.thread_gauche.start()
-        while index != len(self.chemin - 1):
+        while index != len(self.chemin) -1:
             self.mouvement.avancer()
             self.point_courant = self.chemin[index]
             self.prochain_point = self.chemin[index+1]
@@ -36,20 +36,6 @@ class Controler:
                 self.cur_direction = self.next_direction
             index += 1
 
-        self.stop
-        self.thread_droite.join()
-        self.thread_gauche.join()
-        """ self.thread_droite.start()
-        self.thread_gauche.start()
-        self.mouvement.main()
-        self.mouvement.Tourner("gauche")
-        self.mouvement.main()
-        self.mouvement.Tourner("droite")
-        self.mouvement.main()
-        self.mouvement.Tourner("droite")
-        self.mouvement.main()
-        self.mouvement.Tourner("gauche")
-        self.mouvement.main() """
         self.stop = True
         self.thread_droite.join()
         self.thread_gauche.join()
