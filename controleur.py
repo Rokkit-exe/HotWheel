@@ -50,6 +50,8 @@ class Controler:
         self.mouvement.Tourner('left')
         self.mouvement.avancer()
         self.mouvement.Tourner('left')
+        self.mouvement.avancer()
+        self.mouvement.Tourner('left')
         self.stop = True
         self.thread_droite.join()
         self.thread_gauche.join()
