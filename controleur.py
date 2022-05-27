@@ -21,7 +21,7 @@ class Controler:
         self.lock = threading.Lock()
 
     def Demarer(self, depart, fin):
-        """ self.chemin = self.graphe.plus_court_chemin(depart, fin)
+        self.chemin = self.graphe.plus_court_chemin(depart, fin)
         index = 0
         self.thread_droite.start()
         self.thread_gauche.start()
@@ -38,8 +38,8 @@ class Controler:
 
         self.stop
         self.thread_droite.join()
-        self.thread_gauche.join() """
-        self.thread_droite.start()
+        self.thread_gauche.join()
+        """ self.thread_droite.start()
         self.thread_gauche.start()
         self.mouvement.main()
         self.mouvement.Tourner("gauche")
@@ -49,7 +49,7 @@ class Controler:
         self.mouvement.Tourner("droite")
         self.mouvement.main()
         self.mouvement.Tourner("gauche")
-        self.mouvement.main()
+        self.mouvement.main() """
         self.stop = True
         self.thread_droite.join()
         self.thread_gauche.join()
