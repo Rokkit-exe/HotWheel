@@ -24,9 +24,7 @@ class Mouvement:
             self.IN3.on()
             self.ENA.value = 0.3
             self.ENB.value = 0.3
-            #print(f" droite: {self.capteur_infrarouge.droite_actif}")
-            #print(f" gauche: {self.capteur_infrarouge.gauche_actif}")
-            time.sleep(0.2)
+            time.sleep(0.02)
             if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
                 print("J'arrête")
                 est_detecter = True
@@ -37,6 +35,10 @@ class Mouvement:
             if(self.capteur_infrarouge.droite_actif and not est_detecter):
                 print("Correction droite")
                 self.Correction("droite", 0.09)
+            if(self.capteur_infrarouge.gauche_actif and self.capteur_infrarouge.droite_actif):
+                print("J'arrête")
+                est_detecter = True
+                break
             
             
 
