@@ -49,6 +49,7 @@ class Controler:
         self.mouvement.Tourner("droite")
         self.mouvement.main()
         self.mouvement.Tourner("gauche")
+        self.mouvement.main()
         self.stop = True
         self.thread_droite.join()
         self.thread_gauche.join()
@@ -61,14 +62,14 @@ class Controler:
                     if infra.IRG.value:
                         infra.gauche_actif =  True 
                     else:
-                        time.sleep(0.01)
+                        time.sleep(0.05)
                         infra.gauche_actif = False
             else:
                 with self.lock:
                     if infra.IRD.value:
                         infra.droite_actif = True 
                     else:
-                        time.sleep(0.01)
+                        time.sleep(0.05)
                         infra.droite_actif = False
 
 
