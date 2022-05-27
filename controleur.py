@@ -58,10 +58,17 @@ class Controler:
             time.sleep(0.01)
             if (dir == 'gauche'):
                 with self.lock:
-                    infra.gauche_actif = infra.IRG.value if True else False
+                    if infra.IRG.value:
+                        infra.gauche_actif =  True 
+                    else:
+                        time.sleep(0.1)
+                        infra.gauche_actif = False
             else:
                 with self.lock:
-                    infra.droite_actif = infra.IRD.value if True else False
+                    if infra.IRD.value:
+                        infra.droite_actif = True 
+                    else:
+                        infra.droite_actif = False
 
 
     def get_direction(self, point1, point2):
