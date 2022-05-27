@@ -61,14 +61,14 @@ class Controler:
                     if infra.IRG.value:
                         infra.gauche_actif =  True 
                     else:
-                        time.sleep(0.1)
+                        time.sleep(0.01)
                         infra.gauche_actif = False
             else:
                 with self.lock:
                     if infra.IRD.value:
                         infra.droite_actif = True 
                     else:
-                        time.sleep(0.1)
+                        time.sleep(0.01)
                         infra.droite_actif = False
 
 
