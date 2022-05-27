@@ -16,8 +16,8 @@ class Controler:
         self.prochain_point = None
         self.stop = False
         self.infra = infra
-        self.thread_gauche = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'gauche'))
-        self.thread_droite = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'droite'))
+        self.thread_gauche = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'left'))
+        self.thread_droite = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'right'))
         self.lock = threading.Lock()
 
     def Demarer(self, depart, fin):
@@ -59,19 +59,19 @@ class Controler:
     def set_value_capteur(self, infra, dir):
         while not self.stop:
             time.sleep(0.01)
-            if (dir == 'gauche'):
+            if (dir == 'left'):
                 with self.lock:
                     if infra.IRG.value:
                         infra.gauche_actif =  True 
                     else:
-                        time.sleep(0.05)
+                        #time.sleep(0.05)
                         infra.gauche_actif = False
-            else:
+            elif(dir == 'right'):
                 with self.lock:
                     if infra.IRD.value:
                         infra.droite_actif = True 
                     else:
-                        time.sleep(0.05)
+                        #time.sleep(0.05)
                         infra.droite_actif = False
 
 
