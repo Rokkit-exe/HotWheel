@@ -68,6 +68,7 @@ class Controler:
                     if infra.IRD.value:
                         infra.droite_actif = True 
                     else:
+                        time.sleep(0.1)
                         infra.droite_actif = False
 
 
