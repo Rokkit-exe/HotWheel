@@ -22,6 +22,18 @@ class InfraRouge():
         #self.IRD.when_activated = self.inactif_droite
     
 
+    """ def actif_gauche(self):
+        self.gauche_actif = True
+        
+    def actif_droite(self):
+        self.droite_actif = True
+
+    def inactif_gauche(self):
+        self.gauche_actif = False
+        
+    def inactif_droite(self):
+        self.droite_actif = False """
+
     def actif_gauche(self):
         self.gauche_actif = True
         
