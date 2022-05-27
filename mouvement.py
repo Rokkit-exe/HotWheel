@@ -14,10 +14,8 @@ class Mouvement:
         self.capteur_infrarouge = capteur_infrarouge
         self.Initialise()
 
-    def Avancer(self):
-        pass
             
-    def main(self, est_detecter=False):
+    def avancer(self, est_detecter=False):
         while (not est_detecter):
             self.Initialise()
             self.IN1.on()
