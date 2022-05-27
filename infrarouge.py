@@ -5,8 +5,6 @@ class InfraRouge():
     def __init__(self):   
         self.IRG = gpiozero.DigitalInputDevice(23)
         self.IRD = gpiozero.DigitalInputDevice(24)
-        self.compteur_gauche = None
-        self.compteur_droite = None
         self.gauche_actif = None
         self.droite_actif = None
         
@@ -18,14 +16,14 @@ class InfraRouge():
     
 
     def actif_gauche(self):
-        time.sleep(0.05)
+        #time.sleep(0.05)
         if(self.droite_actif):
             self.doit_arreter = True
 
         
         
     def actif_droite(self):
-        time.sleep(0.05)
+        #time.sleep(0.05)
         if(self.gauche_actif):
             self.doit_arreter = True
 
