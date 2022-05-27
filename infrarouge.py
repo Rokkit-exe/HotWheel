@@ -21,7 +21,7 @@ class InfraRouge():
         if(self.compteur_gauche == None):
             self.doit_arreter = False
             self.compteur_gauche = time.perf_counter()
-        if(self.compteur_droite - time.perf_counter() > 0.5 and not self.doit_arreter):
+        if(self.compteur_droite - time.perf_counter() > 0.1 and not self.doit_arreter):
             self.doit_arreter = True
             self.compteur_gauche = None
             self.compteur_droite = None
@@ -33,7 +33,7 @@ class InfraRouge():
         if(self.compteur_droite == None):
             self.doit_arreter = False
             self.compteur_droite = time.perf_counter()
-        if(self.compteur_gauche - time.perf_counter() > 0.5 and not self.doit_arreter):
+        if(self.compteur_gauche - time.perf_counter() > 0.1 and not self.doit_arreter):
             self.doit_arreter = True
             self.compteur_gauche = None
             self.compteur_droite = None
