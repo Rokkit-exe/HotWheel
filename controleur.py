@@ -27,7 +27,7 @@ class Controler:
         self.thread_gauche.start()
         while index != len(self.chemin) - 1:
             time.sleep(0.5)
-            self.mouvement.initialise()
+            self.mouvement.Initialise()
             
             self.point_courant = self.chemin[index]
             self.prochain_point = self.chemin[index+1]
