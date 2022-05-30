@@ -40,7 +40,7 @@ C = Controler(M, graphe, tab_direction, 'n', Infra)
 #noeud_fin = input("Entrez le noeud de fin:")
 
 #C.Demarer(noeud_depart, noeud_fin)
-C.Demarer(0, 15)
+C.Demarer(0, 18)
 
 
 
