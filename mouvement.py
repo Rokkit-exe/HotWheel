@@ -26,7 +26,7 @@ class Mouvement:
             time.sleep(0.01)
             
             if(self.capteur_infrarouge.doit_arreter):
-                time.sleep(0.2)
+                time.sleep(0.18)
                 print("J'arrête")
                 est_detecter = True
                 self.capteur_infrarouge.doit_arreter = False
