@@ -16,7 +16,7 @@ matrice_distances = [ #1   2    3     4     5     6     7     8     9    10    1
                      [Inf,Inf, Inf,   3,   Inf,   0,    2,    1,   Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf], # 5
                      [Inf,Inf, Inf,  Inf,  Inf,   2,    0,   Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf], # 6
                      [Inf,Inf, Inf,  Inf,   3,    1,   Inf,   0,    3,   Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf], # 7
-                     [Inf,Inf, Inf,  Inf,  Inf,  Inf,  Inf,   3,    0,    1,   Inf,  Inf,  Inf,  Inf,  Inf,   2,   Inf,  Inf,  Inf], # 8
+                     [Inf,Inf, Inf,  Inf,  Inf,  Inf,  Inf,   3,    0,    1,   Inf,  Inf,  Inf,  Inf,   2,  Inf,   Inf,  Inf,  Inf], # 8
                      [Inf,Inf, Inf,  Inf,  Inf,  Inf,  Inf,  Inf,   1,    0,   Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf], # 9
                      [Inf,Inf, Inf,  Inf,   2,   Inf,  Inf,  Inf,  Inf,  Inf,   0,    2,   Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf], # 10
                      [Inf,Inf, Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,  Inf,   2,    0,    1,   Inf,  Inf,  Inf,  Inf,  Inf,  Inf], # 11
