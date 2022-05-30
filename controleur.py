@@ -72,9 +72,9 @@ class Controler:
                 return 'n'
         elif (self.tab_points[point1][1] == self.tab_points[point2][1]): #y
             if (self.tab_points[point1][0] > self.tab_points[point2][0]):
-                return 'w'
-            elif (self.tab_points[point1][0] < self.tab_points[point2][0]):
                 return 'e'
+            elif (self.tab_points[point1][0] < self.tab_points[point2][0]):
+                return 'w'
         return None
 
     def get_turn(self, cur_dir, dir):
