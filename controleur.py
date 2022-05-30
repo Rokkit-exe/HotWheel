@@ -26,7 +26,6 @@ class Controler:
         self.thread_droite.start()
         self.thread_gauche.start()
         while index != len(self.chemin) -1:
-            self.mouvement.avancer()
             self.point_courant = self.chemin[index]
             self.prochain_point = self.chemin[index+1]
             print(self.chemin)
@@ -39,6 +38,7 @@ class Controler:
                 self.mouvement.Tourner(self.get_turn(self.cur_direction, self.next_direction))
                 print(self.get_turn(self.cur_direction, self.next_direction))
                 self.cur_direction = self.next_direction
+            self.mouvement.avancer()
             index += 1
 
         self.stop = True
