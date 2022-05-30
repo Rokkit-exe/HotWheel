@@ -22,7 +22,7 @@ class Mouvement:
             self.IN3.on()
             self.ENA.value = 0.3
             self.ENB.value = 0.3
-            time.sleep(1)
+            time.sleep(0.5)
             if(self.capteur_infrarouge.doit_arreter):
                 print("J'arrête")
                 est_detecter = True
