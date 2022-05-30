@@ -30,15 +30,10 @@ class Controler:
             self.mouvement.Initialise()
             self.point_courant = self.chemin[index]
             self.prochain_point = self.chemin[index+1]
-            print(self.chemin)
-            print('index: ', self.chemin[index])
 
             self.next_direction = self.get_direction(self.point_courant, self.prochain_point)
             if (self.cur_direction != self.next_direction):
-                print(self.cur_direction)
-                print(self.next_direction)
                 self.mouvement.Tourner(self.get_turn(self.cur_direction, self.next_direction))
-                print(self.get_turn(self.cur_direction, self.next_direction))
                 self.cur_direction = self.next_direction
             else:
                 self.mouvement.Initialise()
