@@ -16,7 +16,7 @@ class Mouvement:
 
             
     def avancer(self, est_detecter=False):
-        
+        time.sleep(0.5)
         while (not est_detecter):
             print('avance')
             self.Initialise()
