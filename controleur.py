@@ -34,6 +34,8 @@ class Controler:
             self.next_direction = self.get_direction(self.point_courant, self.prochain_point)
             if (self.cur_direction != self.next_direction):
                 print("Allo")
+                print(self.cur_direction)
+                print(self.next_direction)
                 self.mouvement.Tourner(self.get_turn(self.cur_direction, self.next_direction))
                 print(self.get_turn(self.cur_direction, self.next_direction))
                 self.cur_direction = self.next_direction
