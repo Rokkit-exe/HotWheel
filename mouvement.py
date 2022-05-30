@@ -26,6 +26,7 @@ class Mouvement:
             self.ENB.value = 0.3
             time.sleep(0.01)
             if(self.capteur_infrarouge.doit_arreter):
+                
                 print("J'arrête")
                 est_detecter = True
             else:
@@ -50,7 +51,7 @@ class Mouvement:
             self.ENB.value = 0.38
         time.sleep(wait)
     
-    def Tourner(self, dir, est_detecter = False,  wait=1.5):
+    def Tourner(self, dir, est_detecter = False,  wait=1):
         time.sleep(wait)
         print(dir)
         self.Initialise()
