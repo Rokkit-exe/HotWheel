@@ -40,13 +40,13 @@ class Mouvement:
         if (dir == "gauche"):
             self.IN2.on()
             self.IN3.on()
-            self.ENA.value = 0.35
-            self.ENB.value = 0.35
+            self.ENA.value = 0.38
+            self.ENB.value = 0.38
         elif (dir == "droite"):
             self.IN1.on()
             self.IN4.on()
-            self.ENA.value = 0.35
-            self.ENB.value = 0.35
+            self.ENA.value = 0.38
+            self.ENB.value = 0.38
         time.sleep(wait)
     
     def Tourner(self, dir, est_detecter = False,  wait=0.5):
