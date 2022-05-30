@@ -40,6 +40,9 @@ class Controler:
                 self.mouvement.Tourner(self.get_turn(self.cur_direction, self.next_direction))
                 print(self.get_turn(self.cur_direction, self.next_direction))
                 self.cur_direction = self.next_direction
+            else:
+                self.mouvement.Initialise()
+                time.sleep(0.5)
             
             self.mouvement.avancer()
             index += 1
