@@ -36,6 +36,10 @@ Infra = InfraRouge()
 M = Mouvement(Infra)
 C = Controler(M, graphe, tab_direction, 'n', Infra)
 
+#noeud_depart = input("Entrez le noeud de départ:")
+#noeud_fin = input("Entrez le noeud de fin:")
+
+#C.Demarer(noeud_depart, noeud_fin)
 C.Demarer(0, 5)
 
 
