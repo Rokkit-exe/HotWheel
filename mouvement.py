@@ -12,13 +12,13 @@ class Mouvement:
         self.ENB = gpiozero.PWMOutputDevice(18)
         
         self.capteur_infrarouge = capteur_infrarouge
-        self.Initialise()
+        self.Initialiser()
 
             
-    def avancer(self, est_detecter=False):
+    def Avancer(self, est_detecter=False):
         time.sleep(0.5)
         while (not est_detecter):
-            self.Initialise()
+            self.Initialiser()
             self.IN1.on()
             self.IN3.on()
             self.ENA.value = 0.3
@@ -36,7 +36,6 @@ class Mouvement:
                     self.Correction("droite")
 
     def Correction(self, dir, wait=0.1):
-        #self.Initialise()
         if (dir == "gauche"):
             self.IN2.on()
             self.IN3.on()
@@ -51,7 +50,7 @@ class Mouvement:
     
     def Tourner(self, dir, est_detecter = False,  wait=1):
         time.sleep(wait)
-        self.Initialise()
+        self.Initialiser()
         if(dir != None):
             
             while(not est_detecter):
@@ -62,7 +61,7 @@ class Mouvement:
                     self.ENB.value = 0.37
                     if(self.capteur_infrarouge.gauche_actif):
                         est_detecter=True
-                        self.Initialise()
+                        self.Initialiser()
                 elif (dir == "right"):
                     self.IN1.on()
                     self.IN4.on()
@@ -71,11 +70,11 @@ class Mouvement:
             
                     if(self.capteur_infrarouge.droite_actif):
                         est_detecter=True
-                        self.Initialise()
+                        self.Initialiser()
             
             
 
-    def Initialise(self):
+    def Initialiser(self):
         self.ENA.off()
         self.ENB.off()
         self.IN1.off()

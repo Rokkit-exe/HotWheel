@@ -2,7 +2,7 @@ import sys
 from graphe import Graphe
 from mouvement import Mouvement
 from infrarouge import InfraRouge
-from controleur import Controler
+from controleur import Controleur
 Inf = sys.maxsize
 
 
@@ -38,8 +38,8 @@ M = Mouvement(Infra)
 
 noeud_depart = input("Entrez le noeud de départ:")
 noeud_fin = input("Entrez le noeud de fin:")
-dir = input("direction initiale:")
-C = Controler(M, graphe, tab_direction, dir, Infra)
+dir = input("Direction initiale:")
+C = Controleur(M, graphe, tab_direction, dir, Infra)
 
-C.Demarer(noeud_depart, noeud_fin)
+C.Demarrer(noeud_depart, noeud_fin)
 

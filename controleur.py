@@ -1,13 +1,10 @@
-
-from ast import arg
-from multiprocessing import Lock
 import time, threading
 
 
-class Controler: 
+class Controleur: 
     def __init__(self, mouvement, graphe, tab_points, direction, infra):
-        self.cur_direction = direction
-        self.next_direction = None
+        self.dir_courante = direction
+        self.dir_suivante = None
         self.mouvement = mouvement
         self.graphe = graphe
         self.chemin = None
@@ -20,26 +17,26 @@ class Controler:
         self.thread_droite = threading.Thread(target=self.set_value_capteur, args=(self.infra, 'right'))
         self.lock = threading.Lock()
 
-    def Demarer(self, depart, fin):
+    def Demarrer(self, depart, fin):
         self.chemin = self.graphe.plus_court_chemin(depart, fin)
         index = 0
         self.thread_droite.start()
         self.thread_gauche.start()
         while index != len(self.chemin) - 1:
             
-            self.mouvement.Initialise()
+            self.mouvement.Initialiser()
             self.point_courant = self.chemin[index]
             self.prochain_point = self.chemin[index+1]
 
-            self.next_direction = self.get_direction(self.point_courant, self.prochain_point)
-            if (self.cur_direction != self.next_direction):
-                self.mouvement.Tourner(self.get_turn(self.cur_direction, self.next_direction))
-                self.cur_direction = self.next_direction
+            self.dir_suivante = self.get_direction(self.point_courant, self.prochain_point)
+            if (self.dir_courante != self.dir_suivante):
+                self.mouvement.Tourner(self.get_direction(self.dir_courante, self.dir_suivante))
+                self.dir_courante = self.dir_suivante
             else:
-                self.mouvement.Initialise()
+                self.mouvement.Initialiser()
                 time.sleep(0.5)
             
-            self.mouvement.avancer()
+            self.mouvement.Avancer()
             index += 1
 
         self.stop = True
@@ -65,37 +62,37 @@ class Controler:
                         infra.droite_actif = False
 
 
-    def get_direction(self, point1, point2):
-        if (self.tab_points[point1][0] == self.tab_points[point2][0]): # x
-            if (self.tab_points[point1][1] > self.tab_points[point2][1]):
+    def get_direction(self, point_courant, prochain_point):
+        if (self.tab_points[point_courant][0] == self.tab_points[prochain_point][0]): # x
+            if (self.tab_points[point_courant][1] > self.tab_points[prochain_point][1]):
                 return 's'
-            elif (self.tab_points[point1][1] < self.tab_points[point2][1]):
+            elif (self.tab_points[point_courant][1] < self.tab_points[prochain_point][1]):
                 return 'n'
-        elif (self.tab_points[point1][1] == self.tab_points[point2][1]): #y
-            if (self.tab_points[point1][0] > self.tab_points[point2][0]):
+        elif (self.tab_points[point_courant][1] == self.tab_points[prochain_point][1]): #y
+            if (self.tab_points[point_courant][0] > self.tab_points[prochain_point][0]):
                 return 'e'
-            elif (self.tab_points[point1][0] < self.tab_points[point2][0]):
+            elif (self.tab_points[point_courant][0] < self.tab_points[prochain_point][0]):
                 return 'w'
         return None
 
-    def get_turn(self, cur_dir, dir):
-        #directions = ['n', 'e', 's', 'w']
-        if (cur_dir == 'n'):
+    def get_direction(self, dir_courante, dir):
+        
+        if (dir_courante == 'n'):
             if (dir == 'e'):
                 return 'right'
             if (dir == 'w'):
                 return 'left'
-        if (cur_dir == 'e'):
+        if (dir_courante == 'e'):
             if (dir == 's'):
                 return 'right'
             if (dir == 'n'):
                 return 'left'
-        if (cur_dir == 's'):
+        if (dir_courante == 's'):
             if (dir == 'w'):
                 return 'right'
             if (dir == 'e'):
                 return 'left'
-        if (cur_dir == 'w'):
+        if (dir_courante == 'w'):
             if (dir == 'n'):
                 return 'right'
             if (dir == 's'):
