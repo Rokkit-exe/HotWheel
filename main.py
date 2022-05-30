@@ -34,7 +34,7 @@ tab_direction = [(1,2), (1,3), (1,5), (4,3), (5,3), (4,6), (2,6), (5,6), (5,9), 
 graphe = Graphe(matrice_distances)
 Infra = InfraRouge()
 M = Mouvement(Infra)
-C = Controler(M, graphe, tab_direction, 's', Infra)
+C = Controler(M, graphe, tab_direction, 'e', Infra)
 
 #noeud_depart = input("Entrez le noeud de départ:")
 #noeud_fin = input("Entrez le noeud de fin:")
