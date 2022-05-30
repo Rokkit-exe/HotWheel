@@ -18,6 +18,7 @@ class Mouvement:
     def avancer(self, est_detecter=False):
         
         while (not est_detecter):
+            print('avance')
             self.Initialise()
             self.IN1.on()
             self.IN3.on()

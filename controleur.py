@@ -28,7 +28,6 @@ class Controler:
         while index != len(self.chemin) - 1:
             
             self.mouvement.Initialise()
-            time.sleep(3)
             self.point_courant = self.chemin[index]
             self.prochain_point = self.chemin[index+1]
             print(self.chemin)
