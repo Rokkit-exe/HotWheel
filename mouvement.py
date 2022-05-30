@@ -29,7 +29,7 @@ class Mouvement:
                 time.sleep(0.18)
                 print("J'arrête")
                 est_detecter = True
-                
+                self.capteur_infrarouge.doit_arreter = False
             else:
                 if(self.capteur_infrarouge.gauche_actif):
                     print("Correction gauche")
@@ -52,7 +52,7 @@ class Mouvement:
             self.ENB.value = 0.38
         time.sleep(wait)
     
-    def Tourner(self, dir, est_detecter = False,  wait=1):
+    def Tourner(self, dir, est_detecter = False,  wait=0.5):
         time.sleep(wait)
         print(dir)
         self.Initialise()
