@@ -51,7 +51,7 @@ class Mouvement:
         time.sleep(wait)
     
     def Tourner(self, dir, est_detecter = False,  wait=0.5):
-        time.sleep(0.5)
+        time.sleep(0.9)
         print(dir)
         self.Initialise()
         if(dir != None):
