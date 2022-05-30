@@ -25,7 +25,7 @@ class Mouvement:
             self.ENB.value = 0.3
             time.sleep(0.01)
             if(self.capteur_infrarouge.doit_arreter):
-                time.sleep(0.3)
+                time.sleep(0.35)
                 print("J'arrête")
                 est_detecter = True
             else:
